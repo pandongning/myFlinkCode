@@ -1,0 +1,52 @@
+package flink.mystream.sink
+
+import java.util.Properties
+
+import flink.mystream.beans.SensorReading
+import org.apache.flink.api.common.serialization.SimpleStringSchema
+import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
+import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer, FlinkKafkaProducer, FlinkKafkaProducer011}
+import org.apache.flink.api.scala._
+
+object KafkaSink {
+
+  def main(args: Array[String]): Unit = {
+
+    val environment: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
+    environment.setParallelism(3)
+
+    val properties: Properties = new Properties()
+    properties.setProperty("bootstrap.servers", "LocalTwo:9092")
+    properties.setProperty("group.id", "pdn2")
+    properties.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
+    properties.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
+
+    val flinkKafkaConsumer011: FlinkKafkaConsumer[String] = new FlinkKafkaConsumer[String]("first", new SimpleStringSchema(), properties)
+
+    flinkKafkaConsumer011.setStartFromLatest()
+
+    val sourceDataStream: DataStream[String] = environment.addSource(flinkKafkaConsumer011)
+
+    val sensorReadingDataStream: DataStream[String] = sourceDataStream.map(
+      line => {
+        val dataArray: Array[String] = line.split(",")
+        SensorReading(dataArray(0), dataArray(1).trim.toLong, dataArray(2).trim.toDouble).toString // 转成String方便序列化输出.因为下面的FlinkKafkaProducer011里面定义的scheme为SimpleStringSchema，所以此处必须将流里面的元素变为String
+      }
+    )
+
+    //    泛型参数是流里面元素的类型
+    //    如果不提供自定义的分区函数，则所有的数据被发送到kafka的一个分区里面
+    //    如果提供了分区器，则所有的按照分区的规则，将数据发送到不同的分区里面
+    //    如果没有提供分区器，则按照event里面的key字段。具体这部分看文档
+    //    如果key值为null，则使用round-robin
+    //    如果自定定义分区器，但是分区器在任务失败的时候不会保存状态，所以建议最好使用key为null，实现让每个分区里面都有数据
+    val flinkKafkaProducer011: FlinkKafkaProducer[String] = new FlinkKafkaProducer[String]("flinkSink", new SimpleStringSchema(), properties)
+
+
+
+
+    sensorReadingDataStream.addSink(flinkKafkaProducer011)
+
+    environment.execute()
+  }
+}
