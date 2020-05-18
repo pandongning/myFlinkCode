@@ -27,12 +27,12 @@ object T1 {
       .toTable(tableEnvironment, 'id, 'timestamp.rowtime, 'temperature)
 
     //    对于没有注册的表必须使用下面的语法进行查询
-    //    tableEnvironment.sqlQuery(s"SELECT SUM(temperature) FROM $tableOne").toRetractStream[Row].print()
+    tableEnvironment.sqlQuery(s"SELECT SUM(temperature) FROM $tableOne").toRetractStream[Row].print()
 
 
-    //    val tableOneReg: String = tableOne.toString
-    //    tableEnvironment.sqlQuery("SELECT SUM(temperature) FROM tableOneReg").toAppendStream[Row]
-    //        .print()
+    val tableOneReg: String = tableOne.toString
+    tableEnvironment.sqlQuery("SELECT SUM(temperature) FROM tableOneReg").toAppendStream[Row]
+      .print()
 
 
     //    将流注册为一个临时的视图使用

@@ -32,8 +32,8 @@ object T1_ComparisonFunctions {
     tableOne.select("*")
       //      .where('id.like("sensor%"))
       //      .where('id.in("sensor_1","sensor_2")) //in里面是具体的多个值
-//      .where('id.in(tableOne.select('id).where('id==="sensor_3"))) //in里面是一个子查询，所以in里面的值是可以动态变化的
-      .where('temperature.between(1L,3L))
+      //      .where('id.in(tableOne.select('id).where('id==="sensor_3"))) //in里面是一个子查询，所以in里面的值是可以动态变化的
+      .where('temperature.between(1L, 3L))
       .toRetractStream[Row]
       .print()
 
@@ -44,7 +44,7 @@ object T1_ComparisonFunctions {
          |where id like 'sensor%'
          |""".stripMargin)
 
-    //    table.toRetractStream[Row].print()
+    table.toRetractStream[Row].print()
 
     environment.execute()
   }

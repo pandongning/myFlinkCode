@@ -23,7 +23,7 @@ public class FlinkUtils {
 
     //    泛型T是kafka里面反序列化得到的数据类型。
 //    clazz为kafka的反序列类型
-    public static <T> DataStream<T> createKafkaStream(ParameterTool parameters, Class<? extends DeserializationSchema<T>> clazz) throws Exception{
+    public static <T> DataStream<T> createKafkaStream(ParameterTool parameters, Class<? extends DeserializationSchema<T>> clazz) throws Exception {
 
         //设置全局的参数
         env.getConfig().setGlobalJobParameters(parameters);
@@ -54,7 +54,8 @@ public class FlinkUtils {
                 clazz.newInstance(),
                 props);
 
-        //kafkaConsumer.setCommitOffsetsOnCheckpoints(true);//默认为true
+        //默认为true
+        kafkaConsumer.setCommitOffsetsOnCheckpoints(true);
 
         return env.addSource(kafkaConsumer);
 

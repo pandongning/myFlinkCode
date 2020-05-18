@@ -4,11 +4,12 @@ import com.alibaba.druid.pool.DruidDataSourceFactory;
 
 
 import javax.sql.DataSource;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class DruidConnectionPool {
+public class DruidConnectionPool implements Serializable {
 
     private transient static DataSource dataSource = null;
 

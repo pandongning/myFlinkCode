@@ -22,6 +22,8 @@ class MyJdbcSink extends RichSinkFunction[SensorReading] {
 
   // 调用连接，执行 sql
   override def invoke(value: SensorReading, context: SinkFunction.Context[_]): Unit = {
+//    即对于flink传递过来的每一条数据，先进行更新数据库的操作，如果数据库里面以前不存在此条数据，则更新的结果为0
+//    此时则向数据库里面插入数据
     updateStmt.setDouble(1, value.temperature)
     updateStmt.setString(2, value.id)
     updateStmt.execute()

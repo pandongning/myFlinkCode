@@ -1,7 +1,7 @@
 package flink.mystream.processfunction
 
 import flink.mystream.beans.SensorReading
-import org.apache.flink.api.common.state.{ValueState, ValueStateDescriptor}
+import org.apache.flink.api.common.state.{StateTtlConfig, ValueState, ValueStateDescriptor}
 import org.apache.flink.streaming.api.TimeCharacteristic
 import org.apache.flink.streaming.api.functions.KeyedProcessFunction
 import org.apache.flink.streaming.api.functions.timestamps.BoundedOutOfOrdernessTimestampExtractor
@@ -44,7 +44,17 @@ object T1_KeyedProcessFunction {
 
 class TempIncreAlert() extends KeyedProcessFunction[String, SensorReading, String] {
 
-  private lazy val lastTemp: ValueState[Double] = getRuntimeContext.getState(new ValueStateDescriptor[Double]("lastTemp", classOf[Double]))
+//  配置状态清空策略
+  val ttlConfig: StateTtlConfig = StateTtlConfig
+    .newBuilder(org.apache.flink.api.common.time.Time.minutes(30)) //指定状态存活的时间
+    .setUpdateType(StateTtlConfig.UpdateType.OnCreateAndWrite)
+    .setStateVisibility(StateTtlConfig.StateVisibility.NeverReturnExpired)
+    .cleanupInRocksdbCompactFilter.build
+
+  private val lastTempStateDescriptor: ValueStateDescriptor[Double] = new ValueStateDescriptor[Double]("lastTemp", classOf[Double])
+  lastTempStateDescriptor.enableTimeToLive(ttlConfig)
+
+  private lazy val lastTemp: ValueState[Double] = getRuntimeContext.getState(lastTempStateDescriptor)
   //  获得定时器的时间
   private lazy val currentTimer: ValueState[Long] = getRuntimeContext.getState(new ValueStateDescriptor[Long]("currentTimer", classOf[Long]))
 
@@ -61,6 +71,7 @@ class TempIncreAlert() extends KeyedProcessFunction[String, SensorReading, Strin
       ctx.timerService().deleteEventTimeTimer(curTimerTs)
       currentTimer.clear()
     } else if (preTemp > currentTemperature && curTimerTs == 0) {
+      //      需求：监控温度传感器的温度值，如果温度值在5秒钟之内(processing time)连续上升， 则报警
       val timerTs: Long = ctx.timerService().currentWatermark() + 5000L
       ctx.timerService().registerEventTimeTimer(timerTs)
       currentTimer.update(timerTs)

@@ -16,7 +16,7 @@ import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 import org.apache.flink.util.Collector
 
 /**
- * 上面的ProcessWindowFunction 十分的浪费资源，
+ * 上面的ProcessWindowFunction 十分的浪费资源，因为其需要将一个窗口里面的元素全部缓存，所以如果窗口的size过大，就会导致oom
  * 所以可以将ProcessWindowFunction和ReduceFunction, an AggregateFunction之类的聚合函数结合。
  * 其先使用ReduceFunction, an AggregateFunction对于窗口里面的元素增量的聚合，
  * 然后在窗口关闭的时候，将聚合的结果传递给ProcessWindowFunction处理。
@@ -27,6 +27,7 @@ import org.apache.flink.util.Collector
 object T4_ProcessWindowFunctionWithReduceFunction {
 
   def main(args: Array[String]): Unit = {
+
     val environment: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
     environment.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
 
@@ -55,6 +56,7 @@ object T4_ProcessWindowFunctionWithReduceFunction {
 
     keyedStream
       .timeWindow(Time.milliseconds(5))
+      //第一个函数对数据进行增量的聚合，然后将聚合的结果，发送给第二个函数统一做最后的处理
       .reduce(new MyReduceFunction(),new T4_MyProcessWindowFunction)
       .print()
 

@@ -16,15 +16,17 @@ object T10_RichMap {
   }
 }
 
-class UserDefineRichMapFunction extends RichMapFunction[Int, Int] {
+class UserDefineRichMapFunction extends RichMapFunction[Int, String] {
 
+  var i: Long = _
 
+  //获取数据库的连接等操作,其在实例化UserDefineRichMapFunction的时候只执行一次
   override def open(parameters: Configuration): Unit = {
-
+    i += System.currentTimeMillis()
   }
 
-  override def map(value: Int): Int = {
-    value + 100
+  override def map(value: Int): String = {
+    value + "\t" + i
   }
 
   override def close(): Unit = super.close()

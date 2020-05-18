@@ -1,5 +1,6 @@
 package flink.mystream.sideoutputs
 
+import org.apache.flink.configuration.Configuration
 import org.apache.flink.streaming.api.functions.ProcessFunction
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 import org.apache.flink.streaming.api.scala._
@@ -33,6 +34,13 @@ object T1_SideOutPut {
 }
 
 private class MyProcessFunction(sideTag: OutputTag[Int]) extends ProcessFunction[Int, Int] {
+
+
+  override def open(parameters: Configuration): Unit = {
+  }
+
+  override def close(): Unit = super.close()
+
   //所以此处可以看出，侧输出流不一定用于得到迟到的数据，也可以用于将原始数据分为几个流输出
   override def processElement(value: Int, ctx: ProcessFunction[Int, Int]#Context, out: Collector[Int]): Unit = {
     if (value / 2 == 0) {

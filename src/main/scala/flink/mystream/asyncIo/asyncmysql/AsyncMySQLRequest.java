@@ -16,6 +16,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.function.Supplier;
 
+/**
+ * @author pdn
+ */
 public class AsyncMySQLRequest extends RichAsyncFunction<String, String> {
 
     private transient DruidDataSource dataSource;
@@ -27,6 +30,7 @@ public class AsyncMySQLRequest extends RichAsyncFunction<String, String> {
 //        设置线程池的大小
         executorService = Executors.newFixedThreadPool(20);
 
+//        下面获取连接池的操作，可以直接new DruidConnectionPool
         dataSource = new DruidDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUsername("root");
@@ -45,10 +49,8 @@ public class AsyncMySQLRequest extends RichAsyncFunction<String, String> {
 
     @Override
     public void asyncInvoke(String id, final ResultFuture<String> resultFuture) throws Exception {
-
-        Future<String> future = executorService.submit(() -> {
-            return queryFromMySql(id);
-        });
+//下面是匿名实现线程
+        Future<String> future = executorService.submit(() -> queryFromMySql(id));
 
         CompletableFuture.supplyAsync(new Supplier<String>() {
 
@@ -60,7 +62,7 @@ public class AsyncMySQLRequest extends RichAsyncFunction<String, String> {
                     return null;
                 }
             }
-
+            //dbResult就是上面的return future.get()的结果
         }).thenAccept((String dbResult) -> {
             resultFuture.complete(Collections.singleton(dbResult));
         });

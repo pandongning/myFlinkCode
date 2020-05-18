@@ -5,7 +5,7 @@ import java.util.Properties
 import flink.mystream.beans.SensorReading
 import org.apache.flink.api.common.serialization.SimpleStringSchema
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
-import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer, FlinkKafkaProducer, FlinkKafkaProducer011}
+import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer, FlinkKafkaProducer}
 import org.apache.flink.api.scala._
 
 object KafkaSink {
@@ -15,14 +15,16 @@ object KafkaSink {
     val environment: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
     environment.setParallelism(3)
 
+
     val properties: Properties = new Properties()
     properties.setProperty("bootstrap.servers", "LocalTwo:9092")
     properties.setProperty("group.id", "pdn2")
     properties.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
     properties.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
+    properties.setProperty("transaction.timeout.ms", 1000 * 60 * 5 + "")
 
     val flinkKafkaConsumer011: FlinkKafkaConsumer[String] = new FlinkKafkaConsumer[String]("first", new SimpleStringSchema(), properties)
-
+    flinkKafkaConsumer011.setCommitOffsetsOnCheckpoints(false)
     flinkKafkaConsumer011.setStartFromLatest()
 
     val sourceDataStream: DataStream[String] = environment.addSource(flinkKafkaConsumer011)
@@ -40,9 +42,15 @@ object KafkaSink {
     //    如果没有提供分区器，则按照event里面的key字段。具体这部分看文档
     //    如果key值为null，则使用round-robin
     //    如果自定定义分区器，但是分区器在任务失败的时候不会保存状态，所以建议最好使用key为null，实现让每个分区里面都有数据
+    //    个人觉得此处应该设置事务的超时时间大于1h，而不是小于15min
+    properties.setProperty("transaction.timeout.ms", 1000 * 60 * 5 + "")
     val flinkKafkaProducer011: FlinkKafkaProducer[String] = new FlinkKafkaProducer[String]("flinkSink", new SimpleStringSchema(), properties)
 
+    //    new FlinkKafkaProducer[String]("aa",new SimpleStringSchema(),properties, FlinkKafkaProducer.Semantic.EXACTLY_ONCE)
 
+    //  因为kafkasink是两阶段提交，所以预提交的时间过长，则会导致事物的超时，此时则是设置
+    //    因为事物超时导致的失败，不会进行重启
+    flinkKafkaProducer011.ignoreFailuresAfterTransactionTimeout()
 
 
     sensorReadingDataStream.addSink(flinkKafkaProducer011)

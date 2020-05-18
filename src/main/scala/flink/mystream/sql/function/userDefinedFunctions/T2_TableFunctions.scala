@@ -36,7 +36,7 @@ object T2_TableFunctions {
     /**
      * 输入
      * sensor_1a_2b_3c,1585018991000,9.0
-     * 输出
+     * 输出,即一行输入多行输出
      * (true,sensor_1a_2b_3c,sensor,6)
      * (true,sensor_1a_2b_3c,1a,2)
      * (true,sensor_1a_2b_3c,2b,2)

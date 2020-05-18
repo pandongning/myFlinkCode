@@ -7,6 +7,9 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author pdn
+ */
 public class AsyncQueryFromMySQL {
 
     public static void main(String[] args) throws Exception {

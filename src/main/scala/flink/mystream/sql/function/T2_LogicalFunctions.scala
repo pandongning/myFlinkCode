@@ -24,17 +24,17 @@ object T2_LogicalFunctions {
     //  因为在DataStream里面已经指定了使用timestamp字段做为水印的时间戳，所以此处再次指定其为Table里面的eventTime
 
     //    此处的表对象是一个inlined table。即没有注册的表
+    //    其随着此处程序的结束而消失，
     val tableOne: Table = sensorReadingDataStreamOne
       .toTable(tableEnvironment, 'id, 'timestamp.rowtime, 'temperature)
 
     val table: Table = tableEnvironment
       .sqlQuery(
-      s"""
-         |select * from $tableOne
-         |where temperature<2 or id='sensor_1'
-         |"""
-        .stripMargin)
-
+        s"""
+           |select * from $tableOne
+           |where temperature<2 or id='sensor_1'
+           |"""
+          .stripMargin)
 
 
     table.toAppendStream[Row].print()

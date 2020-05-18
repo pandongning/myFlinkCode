@@ -41,6 +41,11 @@ object TumblingWindowJoin {
   }
 }
 
+/**
+ * <IN1> The type of the elements in the first input.
+ * <IN2> The type of the elements in the second input
+ * <OUT> The type of the result elements.
+ */
 class MyJoinFunction extends JoinFunction[(String, Int, String), (String, Int, String), (String, String, String)] {
   //  此处输入的是两个stream里面.key相同的对
   override def join(first: (String, Int, String), second: (String, Int, String)): (String, String, String) = {

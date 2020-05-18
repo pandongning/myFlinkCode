@@ -35,6 +35,12 @@ object T3_Arithmetic_String_Functions {
       .toRetractStream[Row]
     //      .print()
 
+//    转换为case class
+    val value: DataStream[(Boolean, SensorReading)] = tableOne.select("*")
+      .where('id === "sensor_1")
+      .toRetractStream[SensorReading]
+
+
 
     tableOne
       .select('id, 'temperature.sqrt(), rand(23), 'temperature + rand(23))
@@ -46,8 +52,8 @@ object T3_Arithmetic_String_Functions {
       //      .select('id.upperCase(), 'timestamp, 'temperature)
       //      .select('id.trim(removeLeading = true,removeTrailing = true," "))
       //      .select('id.repeat(3), 'timestamp, 'temperature)
-//      .select(concat('id, "pdn"))
-        .select(concat_ws("$",'id,"pdn"," ","aa"))
+      //      .select(concat('id, "pdn"))
+      .select(concat_ws("$", 'id, "pdn", " ", "aa"))
       .toRetractStream[Row]
 
       .print()

@@ -7,9 +7,11 @@ import org.apache.flink.api.common.functions.AggregateFunction
  * 对于reduce，其累加器的类型和输入的元素类型必须一致，
  * 但是对于AggregateFunction累加器的类型和输入的元素类型可以不一致
  *
- * < IN>  The type of the values that are aggregated (input values)
- * < ACC> The type of the accumulator (intermediate aggregate state).
- * < OUT> The type of the aggregated result
+ * AggregateFunction也是一个增量聚合的函数，所以对于一个窗口里面的数据来一条则计算一条
+ *
+ * < IN>  The type of the values that are aggregated (input values)  输入的元素类型
+ * < ACC> The type of the accumulator (intermediate aggregate state).  中间聚合的类型
+ * < OUT> The type of the aggregated result  输出的类型
  **/
 
 

@@ -86,6 +86,7 @@ object T5_Conditional_Functions {
       .toRetractStream[Row]
     //      .print()
 
+
     tableEnvironment.sqlQuery(
       s"""
          |select id,IS_DIGIT(temperature)

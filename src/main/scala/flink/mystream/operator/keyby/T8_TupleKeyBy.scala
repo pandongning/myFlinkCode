@@ -24,6 +24,14 @@ object T8_TupleKeyBy {
 
     keyedStream.process(new MykeyedProcessFunction).print()
 
+    /**
+     * 输出的结果如下，可以看出a前面的线程id都为6，所以说明此时经过keyBy，其已经可以做到将key相同的发送到同一个线程里面
+     * 处理
+     * 6> a
+     * 2> b
+     * 6> a
+     */
+
 //    keyedStream.sum(1).print()
 
     environment.execute()

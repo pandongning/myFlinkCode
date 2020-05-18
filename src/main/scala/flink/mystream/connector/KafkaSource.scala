@@ -15,7 +15,7 @@ object KafkaSource {
 
     val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
     //    给所有的算子设置相同的并行度。具体可以算子还可以覆盖这个默认的值
-        env.setParallelism(4)
+    env.setParallelism(4)
 
     val properties = new Properties()
     properties.setProperty("bootstrap.servers", "LocalOne:9092")

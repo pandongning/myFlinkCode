@@ -9,7 +9,7 @@ object T8_Fold {
 
     val environment: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
 
-        val lineDataStream: DataStream[String] = environment.fromElements("aa bb", "cc dd ee")
+        val lineDataStream: DataStream[String] = environment.fromElements("aa bb", "aa dd")
 
         val wordDataStream: DataStream[String] = lineDataStream.flatMap(line => line.split(" "))
 
@@ -22,11 +22,10 @@ object T8_Fold {
         value.print()
 
     /**
-     * 1> pdn_ee
      * 5> pdn_aa
-     * 5> pdn_bb
-     * 8> pdn_cc
      * 8> pdn_dd
+     * 5> pdn_aa_aa
+     * 5> pdn_bb
      */
 
     environment.execute()

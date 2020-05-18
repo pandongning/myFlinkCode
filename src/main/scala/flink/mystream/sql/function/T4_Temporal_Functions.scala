@@ -33,6 +33,7 @@ object T4_Temporal_Functions {
       .toRetractStream[Row]
     //      .print()
 
+
     tableEnvironment.sqlQuery(
       s"""
          |select id, if(id>'sensor_2','aa','bb')

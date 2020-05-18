@@ -34,6 +34,8 @@ public class TestJoin {
                     }
                 });
 
+        stream1.broadcast();
+
         DataStream<Tuple2<String, String>> stream2=env
                 .socketTextStream("LocalOne",9997)
                 .map(new MapFunction<String, Tuple2<String, String>>() {
