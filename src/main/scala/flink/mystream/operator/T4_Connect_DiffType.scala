@@ -18,13 +18,13 @@ object T4_Connect_DiffType {
     var count: Int = 0
 
     val value: DataStream[Any] = connectedStreams.map(
-      i => {
+      (i: Int) => {
         count += 1
         i + 100
       },
-      string => {
+      (string: String) => {
         count += 1
-        string + "_" + "pdn"
+        count + "\t" + string + "_" + "pdn"
       }
     )
 

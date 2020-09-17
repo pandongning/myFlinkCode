@@ -9,7 +9,8 @@ object T2_Filter {
 
     val value: DataStream[Int] = environment.fromElements(1, 2, 3, 1)
 
-    value.filter(i => i != 1).print()
+//    将条件为真得保留
+    value.filter((i: Int) => i != 1).print()
 
     environment.execute()
   }

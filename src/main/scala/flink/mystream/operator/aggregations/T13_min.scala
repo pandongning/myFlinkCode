@@ -14,7 +14,7 @@ object T13_min {
 
     val tupleDataStream: DataStream[(String, Int, String)] = environment.fromElements(("a", 1, "pdn1"), ("b", 3, "pdn2"), ("a", 3, "pdn3"), ("b", 3, "pdn1"), ("b", 4, "pdn4"))
 
-    val tupleKeyedStream: KeyedStream[(String, Int, String), String] = tupleDataStream.keyBy(_._1)
+    val tupleKeyedStream: KeyedStream[(String, Int, String), String] = tupleDataStream.keyBy((_: (String, Int, String))._1)
 
     val value: DataStream[(String, Int, String)] = tupleKeyedStream.max(1)
 

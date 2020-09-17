@@ -29,7 +29,7 @@ object SlidingWindowskafkaEventTime {
 
     val lineSource: DataStream[String] = environment.addSource(flinkKafkaConsumer)
 
-    val sensorReading: DataStream[SensorReading] = lineSource.map(line => {
+    val sensorReading: DataStream[SensorReading] = lineSource.map((line: String) => {
       val strings: Array[String] = line.split(",")
       SensorReading(strings(0), strings(1).trim.toLong, strings(2).trim.toDouble)
     }
@@ -38,13 +38,17 @@ object SlidingWindowskafkaEventTime {
     })
 
 
-    val keyedStream: KeyedStream[SensorReading, String] = sensorReading.keyBy(_.id)
+    val keyedStream: KeyedStream[SensorReading, String] = sensorReading.keyBy((_: SensorReading).id)
 
-    keyedStream.timeWindow(Time.milliseconds(5), Time.milliseconds(2))
-      .reduce((sensorReadingAgg, sensorReadingElement) => {
-        SensorReading(sensorReadingAgg.id, sensorReadingAgg.timestamp, sensorReadingAgg.temperature + sensorReadingElement.temperature)
+
+    val res: DataStream[SensorReading] = keyedStream.timeWindow(Time.milliseconds(5), Time.milliseconds(2))
+      .reduce((sensorReadingAgg: SensorReading, sensorReadingElement: SensorReading) => {
+        SensorReading(sensorReadingAgg.id, sensorReadingElement.timestamp, sensorReadingAgg.temperature + sensorReadingElement.temperature)
       })
-      .print()
+
+
+    res.print()
+
 
     environment.execute()
 

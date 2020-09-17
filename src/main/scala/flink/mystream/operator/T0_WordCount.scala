@@ -1,11 +1,10 @@
 package flink.mystream.operator
 
 import org.apache.flink.api.common.restartstrategy.RestartStrategies
-import org.apache.flink.api.java.tuple.Tuple
 import org.apache.flink.api.java.utils.ParameterTool
-import org.apache.flink.streaming.api.CheckpointingMode
 import org.apache.flink.streaming.api.environment.CheckpointConfig.ExternalizedCheckpointCleanup
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment, _}
+import org.apache.flink.streaming.api.{CheckpointingMode, TimeCharacteristic}
 
 object T0_WordCount {
 
@@ -27,11 +26,11 @@ object T0_WordCount {
     environment.setRestartStrategy(RestartStrategies.fixedDelayRestart(3, org.apache.flink.api.common.time.Time.seconds(120)))
 
     //    设置缓冲区的大小，只有当缓冲区里面的数据满的时候才会进行处理，这个会提高flink系统的效率，但是会导致延时
-    //    environment.setBufferTimeout(1000L)
+        environment.setBufferTimeout(1000L)
 
 
     //    设置是使用那种时间戳
-    //    environment.setStreamTimeCharacteristic(characteristic = TimeCharacteristic.EventTime)
+        environment.setStreamTimeCharacteristic(characteristic = TimeCharacteristic.EventTime)
 
     //    environment.disableOperatorChaining()
 
@@ -39,13 +38,15 @@ object T0_WordCount {
       .socketTextStream(host, Integer.valueOf(port))
       .uid("source")
 
-    val value1: DataStream[String] = textDstream.flatMap(line => line.split("\\s"))
-      .filter(word => word.nonEmpty)
+    println(org.apache.flink.streaming.api.windowing.time.Time.hours(-8).toMilliseconds)
 
-    val dataStream: DataStream[(String, Int)] = value1.map((_, 1))
+    val value1: DataStream[String] = textDstream.flatMap((line: String) => line.split("\\s"))
+      .filter((word: String) => word.nonEmpty)
+
+    val dataStream: DataStream[(String, Int)] = value1.map(((_: String), 1))
 
     //   第二个泛型参数Tuple表示key的类型
-    val keyedStream: KeyedStream[(String, Int), Tuple] = dataStream.keyBy(0)
+    val keyedStream: KeyedStream[(String, Int), String] = dataStream.keyBy((_: (String, Int))._1)
 
 
     val value: DataStream[(String, Int)] = keyedStream.sum(1)

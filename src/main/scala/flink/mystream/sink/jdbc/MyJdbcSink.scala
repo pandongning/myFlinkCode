@@ -6,6 +6,9 @@ import flink.mystream.beans.SensorReading
 import org.apache.flink.configuration.Configuration
 import org.apache.flink.streaming.api.functions.sink.{RichSinkFunction, SinkFunction}
 
+/**
+ * 此处实际上就是mysql的jdbc使用
+ */
 class MyJdbcSink extends RichSinkFunction[SensorReading] {
 
   var connect: Connection = _

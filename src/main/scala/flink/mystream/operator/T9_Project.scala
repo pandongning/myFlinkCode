@@ -2,6 +2,7 @@ package flink.mystream.operator
 
 import flink.mystream.join.Transcript
 import org.apache.flink.api.java.tuple.Tuple4
+import org.apache.flink.streaming.api.datastream
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 import org.apache.flink.streaming.api.scala._
 
@@ -13,6 +14,10 @@ object T9_Project {
 
     //    project只有javaStream支持，用于从event里面提取个别的字段
     value.javaStream.project(0, 1).print()
+
+
+    val stream: datastream.DataStream[Tuple4[String, String, String, Integer]] = value.javaStream
+
 
     environment.execute()
 

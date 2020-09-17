@@ -2,8 +2,12 @@ package flink.mystream.operator
 
 import flink.mystream.operator.keyby.SensorReading
 import org.apache.flink.streaming.api.scala.{ConnectedStreams, DataStream, SplitStream, StreamExecutionEnvironment}
+/**
+ * 此处得例子，两个流里面得元素类型相同
+ */
 
 object T4_ConnectComap {
+
 
   def main(args: Array[String]): Unit = {
 
@@ -36,6 +40,7 @@ object T4_ConnectComap {
       ((sensorReading: SensorReading) => ("high_" + sensorReading.temperature)),
       ((sensorReading: SensorReading) => ("low_" + sensorReading.temperature))
     )
+
 
     connectedStream.print()
 

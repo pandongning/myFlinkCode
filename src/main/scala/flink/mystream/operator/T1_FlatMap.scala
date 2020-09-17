@@ -12,9 +12,9 @@ object T1_FlatMap {
 
     val lineDataStream: DataStream[String] = environment.fromElements("a b c", "d e")
 
-    val wordDataStream: DataStream[String] = lineDataStream.flatMap(line => line.split(" "))
+    val wordDataStream: DataStream[String] = lineDataStream.flatMap((line: String) => line.split(" "))
 
-    lineDataStream.map(line => line)
+    lineDataStream.map((line: String) => line)
 
     wordDataStream.print()
 

@@ -7,16 +7,17 @@ import org.apache.flink.api.scala._
 
 object SlidingWindows {
   def main(args: Array[String]): Unit = {
+    import org.apache.flink.streaming.api.functions.AssignerWithPeriodicWatermarks
 
     val environment: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
 
     val text: DataStream[String] = environment.socketTextStream("LocalOne", 8888)
 
-    environment.setStreamTimeCharacteristic(TimeCharacteristic.ProcessingTime)
+    environment.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
 
 
-    text.flatMap(_.split(","))
-      .map((_, 1))
+    text.flatMap((_: String).split(","))
+      .map(((_: String), 1))
       .keyBy(0)
       .timeWindow(Time.seconds(5), Time.seconds(2))
 //      .allowedLateness()

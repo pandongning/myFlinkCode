@@ -4,16 +4,17 @@ import java.util.Properties
 
 import flink.mystream.beans.SensorReading
 import org.apache.flink.api.common.serialization.SimpleStringSchema
-import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
-import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer, FlinkKafkaProducer}
 import org.apache.flink.api.scala._
+import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer
 
 object KafkaSink {
 
   def main(args: Array[String]): Unit = {
 
+
     val environment: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
-    environment.setParallelism(3)
 
 
     val properties: Properties = new Properties()
@@ -23,14 +24,14 @@ object KafkaSink {
     properties.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
     properties.setProperty("transaction.timeout.ms", 1000 * 60 * 5 + "")
 
-    val flinkKafkaConsumer011: FlinkKafkaConsumer[String] = new FlinkKafkaConsumer[String]("first", new SimpleStringSchema(), properties)
-    flinkKafkaConsumer011.setCommitOffsetsOnCheckpoints(false)
-    flinkKafkaConsumer011.setStartFromLatest()
+    val flinkKafkaConsumer: FlinkKafkaConsumer[String] = new FlinkKafkaConsumer[String]("first", new SimpleStringSchema(), properties)
+    flinkKafkaConsumer.setCommitOffsetsOnCheckpoints(false)
+    flinkKafkaConsumer.setStartFromLatest()
 
-    val sourceDataStream: DataStream[String] = environment.addSource(flinkKafkaConsumer011)
+    val sourceDataStream: DataStream[String] = environment.addSource(flinkKafkaConsumer)
 
     val sensorReadingDataStream: DataStream[String] = sourceDataStream.map(
-      line => {
+      (line: String) => {
         val dataArray: Array[String] = line.split(",")
         SensorReading(dataArray(0), dataArray(1).trim.toLong, dataArray(2).trim.toDouble).toString // 转成String方便序列化输出.因为下面的FlinkKafkaProducer011里面定义的scheme为SimpleStringSchema，所以此处必须将流里面的元素变为String
       }
@@ -44,9 +45,8 @@ object KafkaSink {
     //    如果自定定义分区器，但是分区器在任务失败的时候不会保存状态，所以建议最好使用key为null，实现让每个分区里面都有数据
     //    个人觉得此处应该设置事务的超时时间大于1h，而不是小于15min
     properties.setProperty("transaction.timeout.ms", 1000 * 60 * 5 + "")
-    val flinkKafkaProducer011: FlinkKafkaProducer[String] = new FlinkKafkaProducer[String]("flinkSink", new SimpleStringSchema(), properties)
+    val flinkKafkaProducer011 = new FlinkKafkaProducer("flinkSink", new SimpleStringSchema(), properties)
 
-    //    new FlinkKafkaProducer[String]("aa",new SimpleStringSchema(),properties, FlinkKafkaProducer.Semantic.EXACTLY_ONCE)
 
     //  因为kafkasink是两阶段提交，所以预提交的时间过长，则会导致事物的超时，此时则是设置
     //    因为事物超时导致的失败，不会进行重启

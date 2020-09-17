@@ -10,7 +10,7 @@ import org.apache.flink.table.api.{Over, Table, Tumble}
 import org.apache.flink.table.api.scala.StreamTableEnvironment
 import org.apache.flink.table.expressions.TimeIntervalUnit
 
-object T6_子查询 {
+object T6_childSelect {
   def main(args: Array[String]): Unit = {
     val environment: StreamExecutionEnvironment = SensorReadingDataSource.environment
     val tableEnvironment: StreamTableEnvironment = SensorReadingDataSource.getTableEnvironment

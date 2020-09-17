@@ -23,7 +23,7 @@ object JdbcSink {
     val dataStream: DataStream[String] = environment.addSource(flinkKafkaConsumer011)
 
     val sensorReadingDataStream: DataStream[SensorReading] = dataStream.map(
-      line => {
+      (line: String) => {
         val strings: Array[String] = line.split(",")
         SensorReading(strings(0), strings(1).trim.toLong, strings(2).trim.toDouble)
       }
