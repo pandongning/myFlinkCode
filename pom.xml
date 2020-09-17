@@ -326,6 +326,7 @@
                                     <mainClass>flink.StreamingJob</mainClass>
                                 </transformer>
                             </transformers>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
                         </configuration>
                     </execution>
                 </executions>
@@ -350,6 +351,7 @@
                 <configuration>
                     <scalaCompatVersion>${scala.binary.version}</scalaCompatVersion>
                     <scalaVersion>${scala.version}</scalaVersion>
+
                 </configuration>
                 <executions>
                     <execution>

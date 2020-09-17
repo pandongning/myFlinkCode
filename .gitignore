@@ -46,3 +46,5 @@ target/generated-sources/
 target/maven-status/
 .idea/.gitignore
 .idea/libraries/
+target/generated-test-sources/
+
