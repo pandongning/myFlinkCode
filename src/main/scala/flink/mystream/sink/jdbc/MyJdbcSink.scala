@@ -20,7 +20,7 @@ class MyJdbcSink extends RichSinkFunction[SensorReading] {
     super.open(parameters)
     connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?serverTimezone=GMT%2B8", "root", "root")
     insert = connect.prepareStatement("INSERT INTO temperatures (sensor, temp) VALUES (?,?)")
-    updateStmt = connect.prepareStatement("update temperatures set temp = ? where sensor = ?")
+    updateStmt= connect.prepareStatement("update temperatures set temp = ? where sensor = ?")
   }
 
   // 调用连接，执行 sql

@@ -4,25 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BranchesTreeState">
-    <expand>
+    <expand />
+    <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69a1b54d-fe5a-443e-b2d0-064aa4d3e74d" name="Default Changelist" comment="" />
+    <list default="true" id="69a1b54d-fe5a-443e-b2d0-064aa4d3e74d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/connector/KafkaSource.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/connector/KafkaSource.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T4_ConnectComap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T4_ConnectComap.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/keyby/T12_CaseClass_FieldKeySelector.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/keyby/T4_CaseClass_FieldKeySelector.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sink/KafkaSink.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sink/KafkaSink.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sink/jdbc/MyJdbcSink.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sink/jdbc/MyJdbcSink.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t1_timewindow/TumblingWindows.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t1_timewindow/TumblingWindows.scala" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +44,9 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1hdkNGcAyjhFEz0x6T5dXQdykN3" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -81,6 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1600348314818</updated>
       <workItem from="1600348315970" duration="526000" />
+      <workItem from="1600484761141" duration="7659000" />
     </task>
     <servers />
   </component>
@@ -97,15 +99,20 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="368" y="92" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1600528908000">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="368" y="92" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1280.689@0.0.1280.689" timestamp="1600528908000" />
     <state x="0" y="0" key="SettingsEditor" timestamp="1600348842032">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="0" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1600348842032" />
-    <state x="204" y="-1" width="871" height="1034" key="search.everywhere.popup" timestamp="1600348586921">
+    <state x="204" y="-1" width="871" height="1034" key="search.everywhere.popup" timestamp="1600529636295">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="204" y="-1" width="871" height="1034" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1600348586921" />
+    <state x="204" y="-1" width="871" height="1034" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1600529636295" />
   </component>
 </project>

@@ -37,8 +37,8 @@ object T4_ConnectComap {
 
 //    此处的map就是comap
     val connectedStream: DataStream[String] = connectedStreams.map(
-      ((sensorReading: SensorReading) => ("high_" + sensorReading.temperature)),
-      ((sensorReading: SensorReading) => ("low_" + sensorReading.temperature))
+      (sensorReading: SensorReading) => ("high_" + sensorReading.temperature),
+      (sensorReading: SensorReading) => ("low_" + sensorReading.temperature)
     )
 
 

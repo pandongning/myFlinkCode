@@ -24,6 +24,8 @@ object KafkaSource {
     properties.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
 
 
+//    下面的构造函数有许多的类型，具体可以自己看看，比如一次订阅kafka的多个topic
+//
     val flinkKafkaConsumer: FlinkKafkaConsumer[String] = new FlinkKafkaConsumer[String]("first", new SimpleStringSchema(), properties)
 
     flinkKafkaConsumer.setStartFromLatest()

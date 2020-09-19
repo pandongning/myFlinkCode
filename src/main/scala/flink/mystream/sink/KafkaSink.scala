@@ -33,7 +33,8 @@ object KafkaSink {
     val sensorReadingDataStream: DataStream[String] = sourceDataStream.map(
       (line: String) => {
         val dataArray: Array[String] = line.split(",")
-        SensorReading(dataArray(0), dataArray(1).trim.toLong, dataArray(2).trim.toDouble).toString // 转成String方便序列化输出.因为下面的FlinkKafkaProducer011里面定义的scheme为SimpleStringSchema，所以此处必须将流里面的元素变为String
+        // 转成String方便序列化输出.因为下面的FlinkKafkaProducer011里面定义的scheme为SimpleStringSchema，所以此处必须将流里面的元素变为String
+        SensorReading(dataArray(0), dataArray(1).trim.toLong, dataArray(2).trim.toDouble).toString
       }
     )
 

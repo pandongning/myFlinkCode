@@ -12,7 +12,7 @@ object T4_CaseClass_FieldKeySelector {
 
     val WcDataStream: DataStream[WC] = environment.fromElements(WC("hello", 1), WC("word", 1), WC("hello", 2))
 
-    //    使用键选择器函数定义键
+    //    使用键选择器函数定义键。此处直接指定case class里面参数的名字即可
     //    泛型参数Tuple表示key的类型
     val wordCounts: KeyedStream[WC, Tuple] = WcDataStream.keyBy("word")
 
