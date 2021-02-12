@@ -9,9 +9,19 @@ import org.apache.flink.streaming.api.functions.timestamps.BoundedOutOfOrderness
 import org.apache.flink.streaming.api.windowing.time.Time
 
 object Split {
+
   def main(args: Array[String]): Unit = {
 
-    val upperCase: String = "aa".toUpperCase
+    //1612969006000
+    println((1599990791000L) - (28800000 + (1599990791000L) + 7000) % 7000)
+
+    //  1599990789000
+    println((1599990791000L) - (1599990791000L + 3000) % 3000)
+
+    //1599990792000
+    println(1599990792000L - (1599990792000L + 3000) % 3000)
+
+    println(System.currentTimeMillis())
 
   }
 }

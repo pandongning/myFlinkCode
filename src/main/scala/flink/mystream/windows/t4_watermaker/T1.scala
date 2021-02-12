@@ -26,8 +26,8 @@ object T1 {
 
 
     val value: DataStream[SensorReading] = dataStream.map(
-      line => {
-        val dataArray = line.split(",")
+      (line: String) => {
+        val dataArray: Array[String] = line.split(",")
         SensorReading(dataArray(0).trim, dataArray(1).trim.toLong, dataArray(2).trim.toDouble)
       }
     )

@@ -40,8 +40,8 @@ object T3_ProcessWindowFunction {
       override def extractTimestamp(element: SensorReading): Long = element.timestamp
     })
 
-
-    val keyedStream: KeyedStream[SensorReading, String] = sensorReading.keyBy(_.id)
+    //泛型String是key的类型
+    val keyedStream: KeyedStream[SensorReading, String] = sensorReading.keyBy((_: SensorReading).id)
 
     keyedStream.timeWindow(Time.milliseconds(3))
       .process(new MyProcessWindowFunction()).print()
@@ -54,8 +54,8 @@ object T3_ProcessWindowFunction {
  * IN     The type of the input value.
  * OUT    The type of the output value.
  * KEY    The type of the key.
- *        其就是流进行keyBy的时候key的类型，Note The key parameter is the key that is extracted via the KeySelector that was specified for the keyBy() invocation.
- *        In case of tuple-index keys or string-field references this key type is always Tuple and you have to manually cast it to a tuple of the correct size to extract the key fields.
+ * 其就是流进行keyBy的时候key的类型，Note The key parameter is the key that is extracted via the KeySelector that was specified for the keyBy() invocation.
+ * In case of tuple-index keys or string-field references this key type is always Tuple and you have to manually cast it to a tuple of the correct size to extract the key fields.
  * W      The type of the window.
  */
 

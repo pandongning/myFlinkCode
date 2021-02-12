@@ -82,6 +82,7 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-filesystem_2.11</artifactId>
             <version>${flink.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -95,7 +96,7 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-statebackend-rocksdb_2.11</artifactId>
             <version>1.10.0</version>
-            <!--            <scope>provided</scope>-->
+<!--            <scope>provided</scope>-->
         </dependency>
 
 

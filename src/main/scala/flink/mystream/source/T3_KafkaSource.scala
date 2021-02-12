@@ -18,11 +18,11 @@ object T3_KafkaSource {
 
     val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
     //    给所有的算子设置相同的并行度。具体可以算子还可以覆盖这个默认的值。
+    //    env.setParallelism(4)
     //    因为设置了此值，则下面的kafkaDataStream的并行度也为4.
     //    但是如果在此处不设置，而是在下面设置，则kafkaDataStream并行度不会受到其影响。
     //    如果不设置值，则如果在idea本地运行则其并行度为本机线程的核数
     //    如果是在集群上运行
-    //    env.setParallelism(4)
 
     val properties = new Properties()
     properties.setProperty("bootstrap.servers", "LocalOne:9092")

@@ -39,16 +39,14 @@ object HotItems {
     )
 
     //此处的结论为，对于没有按照key进行分组的流，直接keyBy，则process函数里面的elements表示一个组里面的全部event
-    /**
-     * dataStream
-     * .timeWindowAll(Time.milliseconds(3))
-     * .process(new ProcessAllWindowFunction[UserBehavior, String, TimeWindow]() {
-     * override def process(context: Context, elements: Iterable[UserBehavior], out: Collector[String]): Unit = {
-     *           out.collect(elements.toList.mkString("\t"))
-     * }
-     * })
-     * .print()
-     */
+    dataStream
+      .timeWindowAll(Time.milliseconds(3))
+      .process(new ProcessAllWindowFunction[UserBehavior, String, TimeWindow]() {
+        override def process(context: Context, elements: Iterable[UserBehavior], out: Collector[String]): Unit = {
+          out.collect(elements.toList.mkString("\t"))
+        }
+      })
+      .print()
 
 
     /**

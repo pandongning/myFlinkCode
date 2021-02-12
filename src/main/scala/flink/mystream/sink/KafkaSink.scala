@@ -25,6 +25,7 @@ object KafkaSink {
     properties.setProperty("transaction.timeout.ms", 1000 * 60 * 5 + "")
 
     val flinkKafkaConsumer: FlinkKafkaConsumer[String] = new FlinkKafkaConsumer[String]("first", new SimpleStringSchema(), properties)
+//    在每次进行checkpointing的时候，是否提交kafka的偏移量到kafka管理偏移量的分区里面
     flinkKafkaConsumer.setCommitOffsetsOnCheckpoints(false)
     flinkKafkaConsumer.setStartFromLatest()
 
@@ -46,7 +47,7 @@ object KafkaSink {
     //    如果自定定义分区器，但是分区器在任务失败的时候不会保存状态，所以建议最好使用key为null，实现让每个分区里面都有数据
     //    个人觉得此处应该设置事务的超时时间大于1h，而不是小于15min
     properties.setProperty("transaction.timeout.ms", 1000 * 60 * 5 + "")
-    val flinkKafkaProducer011 = new FlinkKafkaProducer("flinkSink", new SimpleStringSchema(), properties)
+    val flinkKafkaProducer011: FlinkKafkaProducer[String] = new FlinkKafkaProducer("flinkSink", new SimpleStringSchema(), properties)
 
 
     //  因为kafkasink是两阶段提交，所以预提交的时间过长，则会导致事物的超时，此时则是设置

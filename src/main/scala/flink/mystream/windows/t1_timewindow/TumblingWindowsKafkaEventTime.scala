@@ -3,6 +3,7 @@ package flink.mystream.windows.t1_timewindow
 import java.util.Properties
 
 import flink.mystream.beans.SensorReading
+import flink.mystream.sink.jdbc.MyJdbcSink
 import org.apache.flink.api.common.serialization.SimpleStringSchema
 import org.apache.flink.streaming.api.TimeCharacteristic
 import org.apache.flink.streaming.api.functions.timestamps.BoundedOutOfOrdernessTimestampExtractor
@@ -32,7 +33,7 @@ object TumblingWindowsKafkaEventTime {
     val lineSource: DataStream[String] = environment.addSource(flinkKafkaConsumer)
 
 
-    val sensorReading: DataStream[SensorReading] = lineSource.map(line => {
+    val sensorReading: DataStream[SensorReading] = lineSource.map((line: String) => {
       val strings: Array[String] = line.split(",")
       SensorReading(strings(0), strings(1).trim.toLong, strings(2).trim.toDouble)
     }
@@ -40,14 +41,19 @@ object TumblingWindowsKafkaEventTime {
       override def extractTimestamp(element: SensorReading): Long = element.timestamp
     })
 
-    val keyedStream: KeyedStream[SensorReading, String] = sensorReading.keyBy(_.id)
+    val keyedStream: KeyedStream[SensorReading, String] = sensorReading.keyBy((_: SensorReading).id)
 
-
-    keyedStream.timeWindow(Time.milliseconds(2)).reduce(
-      (sensorReadingAgg, sensorReadingElement) => {
+    //测试窗口的开始时间，和kafka做为source的时候的窗口开始执行的时间
+    val value: DataStream[SensorReading] = keyedStream.timeWindow(Time.milliseconds(2)).reduce(
+      (sensorReadingAgg: SensorReading, sensorReadingElement: SensorReading) => {
         SensorReading(sensorReadingAgg.id, sensorReadingAgg.timestamp, sensorReadingAgg.temperature + sensorReadingElement.temperature)
       }
-    ).print()
+    )
+
+    value.addSink(new MyJdbcSink())
+
+    value.print()
+
 
     environment.execute()
   }

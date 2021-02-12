@@ -39,14 +39,14 @@ object T5_ProcessWindowFunctionWithAggregateFunction {
       val strings: Array[String] = line.split(",")
       SensorReading(strings(0), strings(1).trim.toLong, strings(2).trim.toDouble)
     }
-    ).assignTimestampsAndWatermarks(new BoundedOutOfOrdernessTimestampExtractor[SensorReading](Time.milliseconds(1)) {
+    ).assignTimestampsAndWatermarks(new BoundedOutOfOrdernessTimestampExtractor[SensorReading](Time.milliseconds(1000)) {
       override def extractTimestamp(element: SensorReading): Long = element.timestamp
     })
 
 
     val keyedStream: KeyedStream[SensorReading, String] = sensorReading.keyBy(_.id)
 
-    keyedStream.timeWindow(Time.milliseconds(5))
+    keyedStream.timeWindow(Time.milliseconds(2000))
       .aggregate(new T5_MyAggregateFunction, new T5_ProcessWindowFunction)
       .print()
 
