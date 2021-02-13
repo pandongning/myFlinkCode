@@ -30,7 +30,8 @@ object T1_KeyedProcessFunction {
       }
     })
 
-    val sensorReadingKeyedStream: KeyedStream[SensorReading, String] = sensorReadingDataStream.keyBy(_.id)
+    val sensorReadingKeyedStream: KeyedStream[SensorReading, String] = sensorReadingDataStream.keyBy((_: SensorReading).id)
+
 
     val value: DataStream[String] = sensorReadingKeyedStream.process(new TempIncreAlert)
 

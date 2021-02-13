@@ -24,7 +24,7 @@ object T3_Split {
 
     val splitStream: SplitStream[SensorReading] = mapStream.split((sensorReading: SensorReading) => {
       if (sensorReading.temperature < 1)
-        Seq("low")
+        Seq("low") //注意此处返回的是一个集合，因为一个事件可以属于多个标签。比如事件a即可以属于标签低温，也可以属于中等温度，根据自己的业务规则而定
       else if (sensorReading.temperature < 3)
         Seq("middle")
       else

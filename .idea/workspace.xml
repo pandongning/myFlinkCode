@@ -13,31 +13,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69a1b54d-fe5a-443e-b2d0-064aa4d3e74d" name="Default Changelist" comment="添加a">
-      <change afterPath="$PROJECT_DIR$/.idea/myFlinkCode.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/T0_nc_window.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes.-1232003640.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes.-1679752832.timestamp" afterDir="false" />
+    <list default="true" id="69a1b54d-fe5a-443e-b2d0-064aa4d3e74d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sink/KafkaSink.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sink/KafkaSink.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/source/T3_KafkaSource.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/source/T3_KafkaSource.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t1_timewindow/TumblingWindowsKafkaEventTime.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t1_timewindow/TumblingWindowsKafkaEventTime.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T10_RichMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T10_RichMap.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T3_Split.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T3_Split.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T4_ConnectComap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T4_ConnectComap.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/processfunction/T1_KeyedProcessFunction.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/processfunction/T1_KeyedProcessFunction.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sideoutputs/T1_SideOutPut.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sideoutputs/T1_SideOutPut.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t2_countwindow/CountSlideWindow.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t2_countwindow/CountSlideWindow.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t2_countwindow/CountTumblingWindow.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t2_countwindow/CountTumblingWindow.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t3_funcation/T3_ProcessWindowFunction.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t3_funcation/T3_ProcessWindowFunction.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t3_funcation/T5_ProcessWindowFunctionWithAggregateFunction.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t3_funcation/T5_ProcessWindowFunctionWithAggregateFunction.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t3_funcation/T6_HotItems.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t3_funcation/T6_HotItems.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t4_watermaker/T1.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t4_watermaker/T1.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t7_lateness/t7_lateness.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t7_lateness/t7_lateness.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t8_sideOutputLateData/SideOutputLateData.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t8_sideOutputLateData/SideOutputLateData.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/Split.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/Split.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/flink/mystream/asyncIo/AsyncGaoDe/AsyncGeoToActivityBeanFunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/flink/mystream/asyncIo/AsyncGaoDe/AsyncQueryActivityLocation" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/flink/mystream/asyncIo/AsyncGaoDe/笔记.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/flink/mystream/operator/keyby/笔记.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/flink/mystream/processfunction/T2_BroadcastState" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +65,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/mySoft/flink-release-1.10" />
+    <property name="last_opened_file_path" value="E:/教程/大数据/尚硅谷大数据技术之Flink（Java版）/代码/FlinkTutorial" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.46232557" />
@@ -92,7 +76,21 @@
       <command value="mvn clean package" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Split">
+  <component name="RunManager" selected="Application.CountSlideWindow">
+    <configuration name="CountSlideWindow" type="Application" factoryName="Application">
+      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
+      <option name="MAIN_CLASS_NAME" value="flink.mystream.windows.t2_countwindow.CountSlideWindow" />
+      <module name="myFlinkCode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="flink.mystream.windows.t2_countwindow.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CountTumblingWindow" type="Application" factoryName="Application" temporary="true">
       <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
       <option name="MAIN_CLASS_NAME" value="flink.mystream.windows.t2_countwindow.CountTumblingWindow" />
@@ -128,13 +126,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="T5_ProcessWindowFunctionWithAggregateFunction" type="Application" factoryName="Application" temporary="true">
+    <configuration name="TumblingWindowsKafkaEventTime" type="Application" factoryName="Application" temporary="true">
       <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
-      <option name="MAIN_CLASS_NAME" value="flink.mystream.windows.t3_funcation.T5_ProcessWindowFunctionWithAggregateFunction" />
+      <option name="MAIN_CLASS_NAME" value="flink.mystream.windows.t1_timewindow.TumblingWindowsKafkaEventTime" />
       <module name="myFlinkCode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="flink.mystream.windows.t3_funcation.*" />
+          <option name="PATTERN" value="flink.mystream.windows.t1_timewindow.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -158,22 +156,23 @@
     </configuration>
     <list>
       <item itemvalue="Application.Split" />
-      <item itemvalue="Application.CountTumblingWindow" />
-      <item itemvalue="Application.T5_ProcessWindowFunctionWithAggregateFunction" />
       <item itemvalue="Application.t7_lateness" />
       <item itemvalue="Application.SideOutputLateData" />
+      <item itemvalue="Application.TumblingWindowsKafkaEventTime" />
+      <item itemvalue="Application.CountTumblingWindow" />
+      <item itemvalue="Application.CountSlideWindow" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CountTumblingWindow" />
+        <item itemvalue="Application.TumblingWindowsKafkaEventTime" />
         <item itemvalue="Application.SideOutputLateData" />
         <item itemvalue="Application.Split" />
         <item itemvalue="Application.t7_lateness" />
-        <item itemvalue="Application.T5_ProcessWindowFunctionWithAggregateFunction" />
-        <item itemvalue="Application.CountTumblingWindow" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -196,8 +195,18 @@
       <workItem from="1612963303244" duration="5855000" />
       <workItem from="1613009910013" duration="9000" />
       <workItem from="1613009972835" duration="13755000" />
-      <workItem from="1613094297384" duration="13201000" />
+      <workItem from="1613094297384" duration="17979000" />
+      <workItem from="1613188202969" duration="795000" />
+      <workItem from="1613212393273" duration="4310000" />
     </task>
+    <task id="LOCAL-00001" summary="添加执行的记录">
+      <created>1613132062492</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1613132062492</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,9 +227,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="添加a" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加a" />
+    <MESSAGE value="添加执行的记录" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加执行的记录" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="273" y="0" width="736" height="689" key="#CountSlideWindow" timestamp="1613218994642">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="273" y="0" width="736" height="689" key="#CountSlideWindow/0.0.1280.689@0.0.1280.689" timestamp="1613218994642" />
     <state x="133" y="0" key="#Notifications" timestamp="1613097454380">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -229,46 +243,50 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="371" y="93" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1280.689@0.0.1280.689" timestamp="1612964268899" />
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613128995220">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613218800240">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.689@0.0.1280.689" timestamp="1613128995220" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.689@0.0.1280.689" timestamp="1613218800240" />
     <state x="454" y="227" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1612852865949">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="454" y="227" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.689@0.0.1280.689" timestamp="1612852865949" />
+    <state x="199" y="257" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1613139433322">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="199" y="257" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.689@0.0.1280.689" timestamp="1613139433322" />
     <state x="379" y="178" width="522" height="345" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1612966886157">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="379" y="178" width="522" height="345" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.689@0.0.1280.689" timestamp="1612966886157" />
-    <state x="156" y="0" key="CommitChangelistDialog2" timestamp="1612528926424">
+    <state x="156" y="0" key="CommitChangelistDialog2" timestamp="1613132061100">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="156" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1612528926424" />
+    <state x="156" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1613132061100" />
     <state x="330" y="0" key="DetectedRootsChooserDialog" timestamp="1613049903499">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="330" y="0" key="DetectedRootsChooserDialog/0.0.1280.689@0.0.1280.689" timestamp="1613049903499" />
-    <state x="352" y="43" key="FileChooserDialogImpl" timestamp="1613049876293">
+    <state x="352" y="43" key="FileChooserDialogImpl" timestamp="1613144075639">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="352" y="43" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1613049876293" />
-    <state width="1227" height="116" key="GridCell.Tab.0.bottom" timestamp="1613132016467">
+    <state x="352" y="43" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1613144075639" />
+    <state width="1227" height="216" key="GridCell.Tab.0.bottom" timestamp="1613219252206">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="116" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1613132016467" />
-    <state width="1227" height="116" key="GridCell.Tab.0.center" timestamp="1613132016466">
+    <state width="1227" height="216" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1613219252206" />
+    <state width="1227" height="216" key="GridCell.Tab.0.center" timestamp="1613219252206">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="116" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1613132016466" />
-    <state width="1227" height="116" key="GridCell.Tab.0.left" timestamp="1613132016464">
+    <state width="1227" height="216" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1613219252206" />
+    <state width="1227" height="216" key="GridCell.Tab.0.left" timestamp="1613219252205">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="116" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1613132016464" />
-    <state width="1227" height="116" key="GridCell.Tab.0.right" timestamp="1613132016467">
+    <state width="1227" height="216" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1613219252205" />
+    <state width="1227" height="216" key="GridCell.Tab.0.right" timestamp="1613219252206">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="116" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1613132016467" />
+    <state width="1227" height="216" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1613219252206" />
     <state width="1227" height="495" key="GridCell.Tab.1.bottom" timestamp="1613012581804">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -289,10 +307,14 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="0" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1613096177000" />
-    <state width="623" height="498" key="SwitcherDM" timestamp="1613096365672">
+    <state width="623" height="498" key="SwitcherDM" timestamp="1613213460403">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="623" height="498" key="SwitcherDM/0.0.1280.689@0.0.1280.689" timestamp="1613096365672" />
+    <state width="623" height="498" key="SwitcherDM/0.0.1280.689@0.0.1280.689" timestamp="1613213460403" />
+    <state x="133" y="13" key="Vcs.Push.Dialog.v2" timestamp="1613132079629">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="133" y="13" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1613132079629" />
     <state x="249" y="128" key="com.intellij.ide.util.TipDialog" timestamp="1613094306159">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -301,6 +323,10 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="297" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.689@0.0.1280.689" timestamp="1613129422143" />
+    <state width="482" height="206" key="documentation.popup.size" timestamp="1613214635467">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="482" height="206" key="documentation.popup.size/0.0.1280.689@0.0.1280.689" timestamp="1613214635467" />
     <state width="752" height="311" key="javadoc.popup" timestamp="1613097439833">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -309,6 +335,10 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="213" y="150" width="840" height="1034" key="run.anything.popup/0.0.1280.689@0.0.1280.689" timestamp="1613129832883" />
+    <state x="219" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1613139254723">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="219" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1613139254723" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

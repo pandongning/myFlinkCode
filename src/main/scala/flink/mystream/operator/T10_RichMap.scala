@@ -22,14 +22,16 @@ class UserDefineRichMapFunction extends RichMapFunction[Int, String] {
 
   //获取数据库的连接等操作,其在实例化UserDefineRichMapFunction的时候只执行一次
   override def open(parameters: Configuration): Unit = {
-//下面的代码告诉我们可以在此处得到一些上下文信息
-//    val aa: util.List[Nothing] = getRuntimeContext.getBroadcastVariable("aa")
+    //下面的代码告诉我们可以在此处得到一些上下文信息
+    //    val aa: util.List[Nothing] = getRuntimeContext.getBroadcastVariable("aa")
 
     i += System.currentTimeMillis()
   }
 
   override def map(value: Int): String = {
-    value + "\t" + i
+    //    getRuntimeContext.getIndexOfThisSubtask获取当前的事件位于那个子任务上面
+    value + "\t" + i + "\t" + getRuntimeContext.getIndexOfThisSubtask
+
   }
 
   override def close(): Unit = super.close()

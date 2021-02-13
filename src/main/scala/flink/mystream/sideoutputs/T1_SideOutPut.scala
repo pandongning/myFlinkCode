@@ -46,6 +46,7 @@ private class MyProcessFunction(sideTag: OutputTag[Int]) extends ProcessFunction
     if (value / 2 == 0) {
       out.collect(value)
     } else {
+//      ctx的output用于将流里面的元素输出到侧流里面
       ctx.output(sideTag, value + 100)
     }
   }

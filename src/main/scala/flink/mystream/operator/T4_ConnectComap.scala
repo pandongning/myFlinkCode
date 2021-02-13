@@ -16,6 +16,7 @@ object T4_ConnectComap {
     val inputStream: DataStream[String] = environment.readTextFile("src/main/resources/sensor.txt")
 
     import org.apache.flink.api.scala._
+
     val mapStream: DataStream[SensorReading] = inputStream.map(
       (item: String) => {
         val items: Array[String] = item.split(",")
