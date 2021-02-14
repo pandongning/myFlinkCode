@@ -18,10 +18,11 @@ object Split {
     //  1599990789000
     println((1599990791000L) - (1599990791000L + 3000) % 3000)
 
-    //1599990792000
-    println(1599990792000L - (1599990792000L + 3000) % 3000)
+    //1547718195
+    println(1547718199 - (1547718199 - 0 + 15) % 15)
 
     println(System.currentTimeMillis())
 
+    println(Long.MinValue)
   }
 }
