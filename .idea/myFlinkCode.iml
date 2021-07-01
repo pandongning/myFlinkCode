@@ -13,6 +13,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="scala-sdk-2.11.12" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.flink:flink-scala_2.11:1.10.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.flink:flink-core:1.10.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.flink:flink-annotations:1.10.0" level="project" />
@@ -240,5 +241,6 @@
     <orderEntry type="library" name="Maven: org.tukaani:xz:1.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.flink:flink-cep-scala_2.11:1.10.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.flink:flink-cep_2.11:1.10.0" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba.ververica:flink-connector-mysql-cdc:1.2.0" level="project" />
   </component>
 </module>
