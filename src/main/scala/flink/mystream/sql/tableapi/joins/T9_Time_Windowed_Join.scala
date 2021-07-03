@@ -41,8 +41,8 @@ object T9_Time_Windowed_Join {
     //不能将两个流里面的eventTime字段都输出
 
     tableOne.
-      join(tableTwo)
-      .where('id === 'idTwo && 'timestamp >= 'timestampTwo - 3.millis && 'timestamp < 'timestampTwo + 2.millis)
+      leftOuterJoin(tableTwo)
+      .where('id === 'idTwo && 'timestamp >= 'timestampTwo - 3.seconds && 'timestamp < 'timestampTwo + 2.seconds)
       .select('id, 'idTwo, 'timestamp, 'timestampTwo, 'temperature, 'temperatureTwo)
       .toRetractStream[Row]
       .print()

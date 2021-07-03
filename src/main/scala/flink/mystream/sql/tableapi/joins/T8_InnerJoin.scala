@@ -2,8 +2,9 @@ package flink.mystream.sql.tableapi.joins
 
 import flink.mystream.beans.SensorReading
 import flink.mystream.utils.SensorReadingDataSource
+import flink.mystream.utils.SensorReadingDataSource.environment
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
-import org.apache.flink.table.api.{Over, Table, Tumble}
+import org.apache.flink.table.api.{EnvironmentSettings, Over, Table, Tumble}
 import org.apache.flink.table.api.scala.StreamTableEnvironment
 import org.apache.flink.table.api.scala._
 import org.apache.flink.api.scala._
@@ -17,6 +18,7 @@ object T8_InnerJoin {
     val environment: StreamExecutionEnvironment = SensorReadingDataSource.environment
     val tableEnvironment: StreamTableEnvironment = SensorReadingDataSource.getTableEnvironment
 
+
     val sensorReadingDataStream: DataStream[SensorReading] = SensorReadingDataSource.getDataSource("LocalOne", 7778)
 
     // 此处得到结论，如果DataStream里面的event类型是scala的case class。
@@ -26,7 +28,7 @@ object T8_InnerJoin {
     val tableOne: Table = sensorReadingDataStream
       .toTable(tableEnvironment, 'id, 'timestamp, 'temperature)
 
-    val soureTow: DataStream[String] = environment.socketTextStream("LocalOne", 7778)
+    val soureTow: DataStream[String] = environment.socketTextStream("LocalOne", 7777)
     val soureTowWithWaterMaker: DataStream[SensorReading] = soureTow.map(line => {
       val strings: Array[String] = line.split(",")
       SensorReading(strings(0).trim, strings(1).trim.toLong, strings(2).trim.toDouble)
@@ -36,20 +38,19 @@ object T8_InnerJoin {
 
     val tableTwo: Table = soureTowWithWaterMaker.toTable(tableEnvironment, 'idTwo, 'timestampTwo, 'temperatureTwo)
 
-    tableOne
-      .join(tableTwo)
-      .where('id === 'idTwo)
-      .toRetractStream[Row]
-      .print()
+//    tableOne
+//      .join(tableTwo)
+//      .where('id === 'idTwo)
+//      .toRetractStream[Row]
+//      .print()
 
     tableOne.leftOuterJoin(tableTwo, 'id === 'idTwo)
       .toRetractStream[Row]
       .print()
 
-
-    tableOne
-      .fullOuterJoin(tableTwo, 'id === 'idTwo)
-      .toRetractStream[Row]
+//    tableOne
+//      .fullOuterJoin(tableTwo, 'id === 'idTwo)
+//      .toRetractStream[Row]
     //      .print()
 
     environment.execute()

@@ -27,6 +27,20 @@ object T3_GroupByTUMBLEWindowAggregation {
     val tableOne: Table = sensorReadingDataStreamOne
       .toTable(tableEnvironment, 'id, 'timestamp.rowtime, 'temperature)
 
+    /**
+     * 输入
+     * >sensor_1, 1599990790000,1
+     * >sensor_1, 1599990790000,1.1
+     * >sensor_1, 1599990790000,1.2
+     * >sensor_2, 1599990792000,2
+     * >sensor_2, 1599990792000,2.1
+     * >sensor_2, 1599990793000,2.2
+     * 得到输出
+     * 8> (true,sensor_1,3.3,+52671-09-09T22:06:40,+52671-09-09T22:06:42)
+     * 但是继续输入迟到的数据
+     * sensor_1, 1599990790000,1.4
+     * 其并不会再次触发窗口的执行。所以可以对于窗口的聚合，其不会处理迟到的数据
+     */
     val table: Table = tableEnvironment
       .sqlQuery(
         s"""

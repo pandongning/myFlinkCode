@@ -14,12 +14,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69a1b54d-fe5a-443e-b2d0-064aa4d3e74d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/cdc/T1.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/myFlinkCode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/myFlinkCode.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/beans/MergeBean.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/beans/SensorReadingTwo.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/connector/T1_KafkaConnector_RegularJoin.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/connector/T2_Kafka_To_TableSql.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/connector/T3_Two_Stream_Interval_Join.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/flink/mystream/asyncIo/AsyncGaoDe/AsyncGeoToActivityBeanFunction" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/flink/mystream/asyncIo/AsyncGaoDe/AsyncQueryActivityLocation" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/flink/mystream/asyncIo/AsyncGaoDe/笔记.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/flink/mystream/operator/keyby/笔记.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/flink/mystream/processfunction/T2_BroadcastState" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/connector/KafkaConnector.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/connector/KafkaConnector.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/connector/KafkaConnector.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/sqlLanguage/T3_GroupByTUMBLEWindowAggregation.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/sqlLanguage/T3_GroupByTUMBLEWindowAggregation.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/joins/T8_InnerJoin.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/joins/T8_InnerJoin.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/joins/T9_Time_Windowed_Join.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/joins/T9_Time_Windowed_Join.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +40,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="dummy://scala-decompiled/DataStreamConversions.decompiled.java" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="JupyterTrust" id="d22c638a-49bf-4020-bcc5-abed995c9ad7" />
   <component name="MavenImportPreferences">
@@ -71,10 +83,10 @@
       <command value="mvn clean package" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.KafkaConnector">
+  <component name="RunManager" selected="Application.T3_Two_Stream_Interval_Join">
     <configuration name="KafkaConnector" type="Application" factoryName="Application" temporary="true">
       <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
-      <option name="MAIN_CLASS_NAME" value="flink.mystream.sql.connector.KafkaConnector" />
+      <option name="MAIN_CLASS_NAME" value="flink.mystream.sql.connector.T1_KafkaConnector_RegularJoin" />
       <module name="myFlinkCode" />
       <extension name="coverage">
         <pattern>
@@ -100,6 +112,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="T2_Kafka_To_TableSql" type="Application" factoryName="Application" temporary="true">
+      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
+      <option name="MAIN_CLASS_NAME" value="flink.mystream.sql.connector.T2_Kafka_To_TableSql" />
+      <module name="myFlinkCode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="flink.mystream.sql.connector.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="T3_Two_Stream_Interval_Join" type="Application" factoryName="Application">
+      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
+      <option name="MAIN_CLASS_NAME" value="flink.mystream.sql.connector.T3_Two_Stream_Interval_Join" />
+      <module name="myFlinkCode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="flink.mystream.sql.connector.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="T8_InnerJoin" type="Application" factoryName="Application" temporary="true">
+      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
+      <option name="MAIN_CLASS_NAME" value="flink.mystream.sql.tableapi.joins.T8_InnerJoin" />
+      <module name="myFlinkCode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="flink.mystream.sql.tableapi.joins.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -114,10 +168,15 @@
     <list>
       <item itemvalue="Application.T1" />
       <item itemvalue="Application.KafkaConnector" />
+      <item itemvalue="Application.T2_Kafka_To_TableSql" />
+      <item itemvalue="Application.T3_Two_Stream_Interval_Join" />
+      <item itemvalue="Application.T8_InnerJoin" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.KafkaConnector" />
+        <item itemvalue="Application.T8_InnerJoin" />
+        <item itemvalue="Application.T2_Kafka_To_TableSql" />
       </list>
     </recent_temporary>
   </component>
@@ -150,7 +209,7 @@
       <workItem from="1613274911557" duration="6017000" />
       <workItem from="1625025729907" duration="3031000" />
       <workItem from="1625068674314" duration="2462000" />
-      <workItem from="1625105159132" duration="5825000" />
+      <workItem from="1625105159132" duration="28176000" />
     </task>
     <task id="LOCAL-00001" summary="添加执行的记录">
       <created>1613132062492</created>
@@ -166,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613219265980</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="添加kafka connect的双流join">
+      <created>1625111033697</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1625111033697</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,17 +253,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="添加a" />
     <MESSAGE value="添加执行的记录" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加执行的记录" />
+    <MESSAGE value="添加kafka connect的双流join" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加kafka connect的双流join" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="368" y="91" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1625109155206">
+    <state x="368" y="91" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1625132115689">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="368" y="91" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1280.689@0.0.1280.689" timestamp="1625109155206" />
-    <state x="92" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1625069212665">
+    <state x="368" y="91" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1280.689@0.0.1280.689" timestamp="1625132115689" />
+    <state x="92" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1625146400927">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="92" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.689@0.0.1280.689" timestamp="1625069212665" />
+    <state x="92" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.689@0.0.1280.689" timestamp="1625146400927" />
     <state x="333" y="242" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog" timestamp="1625025744988">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -206,30 +273,66 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="399" y="0" key="#com.intellij.ide.util.MemberChooser/0.0.1280.689@0.0.1280.689" timestamp="1625109183732" />
+    <state x="212" y="254" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1625131898047">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="212" y="254" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.689@0.0.1280.689" timestamp="1625131898047" />
+    <state x="151" y="0" key="CommitChangelistDialog2" timestamp="1625111032483">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="151" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1625111032483" />
     <state x="368" y="41" key="FileChooserDialogImpl" timestamp="1625027624972">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="368" y="41" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1625027624972" />
-    <state width="1227" height="190" key="GridCell.Tab.0.bottom" timestamp="1625110976762">
+    <state width="1227" height="163" key="GridCell.Tab.0.bottom" timestamp="1625201641398">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="190" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1625110976762" />
-    <state width="1227" height="190" key="GridCell.Tab.0.center" timestamp="1625110976762">
+    <state width="1227" height="163" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1625201641398" />
+    <state width="1227" height="163" key="GridCell.Tab.0.center" timestamp="1625201641398">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="190" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1625110976762" />
-    <state width="1227" height="190" key="GridCell.Tab.0.left" timestamp="1625110976762">
+    <state width="1227" height="163" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1625201641398" />
+    <state width="1227" height="163" key="GridCell.Tab.0.left" timestamp="1625201641398">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="190" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1625110976762" />
-    <state width="1227" height="190" key="GridCell.Tab.0.right" timestamp="1625110976762">
+    <state width="1227" height="163" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1625201641398" />
+    <state width="1227" height="163" key="GridCell.Tab.0.right" timestamp="1625201641398">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="190" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1625110976762" />
+    <state width="1227" height="163" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1625201641398" />
+    <state width="1227" height="244" key="GridCell.Tab.1.bottom" timestamp="1625201150503">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1227" height="244" key="GridCell.Tab.1.bottom/0.0.1280.689@0.0.1280.689" timestamp="1625201150503" />
+    <state width="1227" height="244" key="GridCell.Tab.1.center" timestamp="1625201150503">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1227" height="244" key="GridCell.Tab.1.center/0.0.1280.689@0.0.1280.689" timestamp="1625201150503" />
+    <state width="1227" height="244" key="GridCell.Tab.1.left" timestamp="1625201150502">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1227" height="244" key="GridCell.Tab.1.left/0.0.1280.689@0.0.1280.689" timestamp="1625201150502" />
+    <state width="1227" height="244" key="GridCell.Tab.1.right" timestamp="1625201150503">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1227" height="244" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1625201150503" />
     <state x="0" y="0" key="SettingsEditor" timestamp="1625025853577">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="0" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1625025853577" />
+    <state x="133" y="13" key="Vcs.Push.Dialog.v2" timestamp="1625328084158">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="133" y="13" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1625328084158" />
+    <state x="193" y="15" key="VcsDiffUtil.ChangesDialog" timestamp="1625328139193">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="193" y="15" key="VcsDiffUtil.ChangesDialog/0.0.1280.689@0.0.1280.689" timestamp="1625328139193" />
+    <state x="219" y="0" width="840" height="1034" key="search.everywhere.popup" timestamp="1625196196716">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="219" y="0" width="840" height="1034" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1625196196716" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
