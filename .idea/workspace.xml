@@ -14,21 +14,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69a1b54d-fe5a-443e-b2d0-064aa4d3e74d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/beans/MergeBean.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/beans/SensorReadingTwo.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/connector/T1_KafkaConnector_RegularJoin.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/connector/T2_Kafka_To_TableSql.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/connector/T3_Two_Stream_Interval_Join.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/flink/mystream/asyncIo/AsyncGaoDe/AsyncGeoToActivityBeanFunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/flink/mystream/asyncIo/AsyncGaoDe/AsyncQueryActivityLocation" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/flink/mystream/asyncIo/AsyncGaoDe/笔记.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/flink/mystream/operator/keyby/笔记.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/flink/mystream/processfunction/T2_BroadcastState" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/connector/KafkaConnector.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/sqlLanguage/T3_GroupByTUMBLEWindowAggregation.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/sqlLanguage/T3_GroupByTUMBLEWindowAggregation.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/joins/T8_InnerJoin.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/joins/T8_InnerJoin.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/joins/T9_Time_Windowed_Join.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/joins/T9_Time_Windowed_Join.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T0_WordCount.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T0_WordCount.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,22 +141,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.T1" />
+      <item itemvalue="Application.T3_Two_Stream_Interval_Join" />
       <item itemvalue="Application.KafkaConnector" />
       <item itemvalue="Application.T2_Kafka_To_TableSql" />
-      <item itemvalue="Application.T3_Two_Stream_Interval_Join" />
       <item itemvalue="Application.T8_InnerJoin" />
     </list>
     <recent_temporary>
@@ -209,7 +185,7 @@
       <workItem from="1613274911557" duration="6017000" />
       <workItem from="1625025729907" duration="3031000" />
       <workItem from="1625068674314" duration="2462000" />
-      <workItem from="1625105159132" duration="28176000" />
+      <workItem from="1625105159132" duration="31545000" />
     </task>
     <task id="LOCAL-00001" summary="添加执行的记录">
       <created>1613132062492</created>
@@ -232,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625111033697</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="添加kafka connect的双流join">
+      <created>1625328153786</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1625328153786</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,30 +260,30 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="212" y="254" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.689@0.0.1280.689" timestamp="1625131898047" />
-    <state x="151" y="0" key="CommitChangelistDialog2" timestamp="1625111032483">
+    <state x="151" y="0" key="CommitChangelistDialog2" timestamp="1625328152508">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="151" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1625111032483" />
+    <state x="151" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1625328152508" />
     <state x="368" y="41" key="FileChooserDialogImpl" timestamp="1625027624972">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="368" y="41" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1625027624972" />
-    <state width="1227" height="163" key="GridCell.Tab.0.bottom" timestamp="1625201641398">
+    <state width="1227" height="163" key="GridCell.Tab.0.bottom" timestamp="1625337121207">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="163" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1625201641398" />
-    <state width="1227" height="163" key="GridCell.Tab.0.center" timestamp="1625201641398">
+    <state width="1227" height="163" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1625337121207" />
+    <state width="1227" height="163" key="GridCell.Tab.0.center" timestamp="1625337121204">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="163" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1625201641398" />
-    <state width="1227" height="163" key="GridCell.Tab.0.left" timestamp="1625201641398">
+    <state width="1227" height="163" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1625337121204" />
+    <state width="1227" height="163" key="GridCell.Tab.0.left" timestamp="1625337121202">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="163" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1625201641398" />
-    <state width="1227" height="163" key="GridCell.Tab.0.right" timestamp="1625201641398">
+    <state width="1227" height="163" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1625337121202" />
+    <state width="1227" height="163" key="GridCell.Tab.0.right" timestamp="1625337121205">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="163" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1625201641398" />
+    <state width="1227" height="163" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1625337121205" />
     <state width="1227" height="244" key="GridCell.Tab.1.bottom" timestamp="1625201150503">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -317,18 +300,22 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state width="1227" height="244" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1625201150503" />
-    <state x="0" y="0" key="SettingsEditor" timestamp="1625025853577">
+    <state x="0" y="0" key="SettingsEditor" timestamp="1625366335414">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="0" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1625025853577" />
-    <state x="133" y="13" key="Vcs.Push.Dialog.v2" timestamp="1625328084158">
+    <state x="0" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1625366335414" />
+    <state x="133" y="13" key="Vcs.Push.Dialog.v2" timestamp="1625328156859">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="133" y="13" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1625328084158" />
+    <state x="133" y="13" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1625328156859" />
     <state x="193" y="15" key="VcsDiffUtil.ChangesDialog" timestamp="1625328139193">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="193" y="15" key="VcsDiffUtil.ChangesDialog/0.0.1280.689@0.0.1280.689" timestamp="1625328139193" />
+    <state x="249" y="127" key="com.intellij.ide.util.TipDialog" timestamp="1625366313223">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="249" y="127" key="com.intellij.ide.util.TipDialog/0.0.1280.689@0.0.1280.689" timestamp="1625366313223" />
     <state x="219" y="0" width="840" height="1034" key="search.everywhere.popup" timestamp="1625196196716">
       <screen x="0" y="0" width="1280" height="689" />
     </state>

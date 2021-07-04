@@ -9,6 +9,7 @@ import org.apache.flink.streaming.api.{CheckpointingMode, TimeCharacteristic}
 object T0_WordCount {
 
   def main(args: Array[String]): Unit = {
+    System.setProperty("HAOOP_HOME", "C:/Users/pdn/mySoft/hadoop-2.7.2")
 
     val parameter: ParameterTool = ParameterTool.fromArgs(args)
     val host: String = parameter.get("host")
@@ -27,6 +28,10 @@ object T0_WordCount {
 
     //    设置缓冲区的大小，只有当缓冲区里面的数据满的时候才会进行处理，这个会提高flink系统的效率，但是会导致延时
         environment.setBufferTimeout(1000L)
+
+//    设置CK的目录
+    import org.apache.flink.runtime.state.filesystem.FsStateBackend
+//    environment.setStateBackend(new FsStateBackend("hdfs://LocalOne:8020/flinkCk"))
 
 
     //    设置是使用那种时间戳
