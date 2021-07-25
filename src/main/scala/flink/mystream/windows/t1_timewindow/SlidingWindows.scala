@@ -20,7 +20,7 @@ object SlidingWindows {
       .map(((_: String), 1))
       .keyBy(0)
       .timeWindow(Time.seconds(5), Time.seconds(2))
-//      .allowedLateness()
+      .allowedLateness(Time.seconds(2L))
       .sum(1)
       .print()
       .setParallelism(1)

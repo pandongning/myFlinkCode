@@ -1,14 +1,13 @@
 package flink.mystream.sql.connector
 
 import org.apache.flink.api.common.restartstrategy.RestartStrategies
-import org.apache.flink.table.api.scala._
 import org.apache.flink.api.scala._
 import org.apache.flink.streaming.api.CheckpointingMode
 import org.apache.flink.streaming.api.environment.CheckpointConfig.ExternalizedCheckpointCleanup
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
+import org.apache.flink.table.api.scala.{StreamTableEnvironment, _}
 import org.apache.flink.table.api.{DataTypes, EnvironmentSettings, Table}
-import org.apache.flink.table.api.scala.StreamTableEnvironment
-import org.apache.flink.table.descriptors.{Csv, Json, Kafka, Rowtime, Schema}
+import org.apache.flink.table.descriptors.{Csv, Kafka, Rowtime, Schema}
 import org.apache.flink.types.Row
 
 object T1_KafkaConnector_RegularJoin {
@@ -41,7 +40,7 @@ object T1_KafkaConnector_RegularJoin {
         .property("zookeeper.connect", "LocalOne:2181")
         .property("bootstrap.servers", "LocalOne:9092")
         .startFromLatest()) //如果第一次将所有的数据打到binlog里面。则会采集全量的。
-      .withFormat(new Csv().deriveSchema())
+      .withFormat(new Csv().ignoreParseErrors())
       .withSchema(new Schema()
         .field("id", DataTypes.STRING)
         .field("timestamp", DataTypes.BIGINT).rowtime(new Rowtime().timestampsFromField("timestamp").watermarksPeriodicBounded(1000L))
@@ -114,6 +113,7 @@ object T1_KafkaConnector_RegularJoin {
      * 则得到。可以看出，其做的是全量的join。
      * 此处容易引起自己误解的是，如果传递是mysql_binlog的解析数据，次数则对于维度的数据，应该属于变更，而不是直接插入，如果是直接插入，则
      * 此处就是多了一条相同的维度数据
+     * 所以对于ensor_3,1599990790000,ee会输出两条数据
      * 4> (true,sensor_3,1599990790000,4.0,sensor_3,1599990790000,ee)
      * 4> (true,sensor_3,1599990790000,4.0,sensor_3,1599990790000,ee)
      * 4> (true,sensor_3,1599990790000,4.0,sensor_3,1599990790000,cc)

@@ -25,6 +25,30 @@ object T5_Top_N {
     val tableOne: Table = sensorReadingDataStreamOne
       .toTable(tableEnvironment, 'id, 'timestamp.rowtime, 'temperature)
 
+    tableEnvironment.createTemporaryView("tableOne", tableOne)
 
+    /**
+     * 对于同一个key，随时的一条输入，都会影响以前的结果
+     * 所以此时最好设置状态的存活时间。
+     * 因为此处得到的是从历史到现在的top3
+     *
+     * 输入sensor_6, 1547718201, 1.1
+     * 输出2  (true,sensor_6,1970-01-18T21:55:18.201,1.2,1)
+     * 再次输入sensor_6, 1547718201, 1.2
+     * 输出。即提前排名为1的，此时排名为2呢
+     * (false,sensor_6,1970-01-18T21:55:18.201,1.1,1)
+     * (true,sensor_6,1970-01-18T21:55:18.201,1.1,2)
+     */
+
+    tableEnvironment.sqlQuery(
+      """
+        |select * from (
+        |select *, row_number() over (partition by id order by temperature desc) as rk from tableOne
+        |) t1 where rk<=3
+        |
+        |""".stripMargin).toRetractStream[Row].print()
+
+
+    environment.execute()
   }
 }

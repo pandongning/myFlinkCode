@@ -36,9 +36,9 @@ object T9_Time_Windowed_Join {
 
     val tableTwo: Table = soureTowWithWaterMaker.toTable(tableEnvironment, 'idTwo, 'timestampTwo.rowtime, 'temperatureTwo)
 
-    //    必须给两个流上设置eventTime字段
+    //必须给两个流上设置eventTime字段
     //但是最后输出的时候只能选择一个流里面的eventTime字段输出
-    //不能将两个流里面的eventTime字段都输出
+    //不能将两个流里面的eventTime字段都输出。否则水印就冲突了
 
     tableOne.
       leftOuterJoin(tableTwo)

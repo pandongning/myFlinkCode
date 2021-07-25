@@ -38,7 +38,6 @@ object SensorReadingDataSource {
   }
 
   def getTableEnvironment: StreamTableEnvironment = {
-
     val environmentSettings: EnvironmentSettings = EnvironmentSettings.newInstance().inStreamingMode().useBlinkPlanner().build()
     val tableEnvironment: StreamTableEnvironment = StreamTableEnvironment.create(environment, environmentSettings)
     tableEnvironment

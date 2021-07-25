@@ -2,11 +2,11 @@ package flink.mystream.sql.sqlLanguage
 
 import flink.mystream.beans.SensorReading
 import flink.mystream.utils.SensorReadingDataSource
-import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
-import org.apache.flink.table.api.{Over, Table, Tumble}
-import org.apache.flink.table.api.scala.StreamTableEnvironment
-import org.apache.flink.table.api.scala._
 import org.apache.flink.api.scala._
+import org.apache.flink.streaming.api.TimeCharacteristic
+import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
+import org.apache.flink.table.api.Table
+import org.apache.flink.table.api.scala.{StreamTableEnvironment, _}
 import org.apache.flink.types.Row
 
 
@@ -14,7 +14,9 @@ object T3_GroupByTUMBLEWindowAggregation {
   def main(args: Array[String]): Unit = {
 
     val environment: StreamExecutionEnvironment = SensorReadingDataSource.environment
+    environment.setStreamTimeCharacteristic(characteristic = TimeCharacteristic.EventTime)
     val tableEnvironment: StreamTableEnvironment = SensorReadingDataSource.getTableEnvironment
+
 
     val sensorReadingDataStreamOne: DataStream[SensorReading] = SensorReadingDataSource.getDataSource("LocalOne", 7778)
 
@@ -39,7 +41,9 @@ object T3_GroupByTUMBLEWindowAggregation {
      * 8> (true,sensor_1,3.3,+52671-09-09T22:06:40,+52671-09-09T22:06:42)
      * 但是继续输入迟到的数据
      * sensor_1, 1599990790000,1.4
-     * 其并不会再次触发窗口的执行。所以可以对于窗口的聚合，其不会处理迟到的数据
+     * 其并不会再次触发窗口的执行。所以可以对于窗口的聚合，其不会处理迟到的数据.
+     *
+     * 但是如果使用的是kafka的connector，在定义表的时候如果设置好允许延迟的时间。估计延迟的数据应该可以触发执行
      */
     val table: Table = tableEnvironment
       .sqlQuery(

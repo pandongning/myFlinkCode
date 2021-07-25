@@ -1,4 +1,4 @@
-package flink.mystream.sql.tableapi.joins
+package flink.mystream.sql.sqlLanguage
 
 import flink.mystream.beans.SensorReading
 import flink.mystream.utils.SensorReadingDataSource
@@ -12,9 +12,9 @@ import org.apache.flink.streaming.api.functions.timestamps.BoundedOutOfOrderness
 import org.apache.flink.streaming.api.windowing.time.Time
 import org.apache.flink.types.Row
 
-object T8_InnerJoin {
-  def main(args: Array[String]): Unit = {
 
+object T7_Join {
+  def main(args: Array[String]): Unit = {
     val environment: StreamExecutionEnvironment = SensorReadingDataSource.environment
     val tableEnvironment: StreamTableEnvironment = SensorReadingDataSource.getTableEnvironment
 
@@ -38,39 +38,41 @@ object T8_InnerJoin {
 
     val tableTwo: Table = soureTowWithWaterMaker.toTable(tableEnvironment, 'idTwo, 'timestampTwo, 'temperatureTwo)
 
-    //    tableOne
-    //      .join(tableTwo)
-    //      .where('id === 'idTwo)
-    //      .toRetractStream[Row]
-    //      .print()
+    tableEnvironment.createTemporaryView("tableOne", tableOne)
+    tableEnvironment.createTemporaryView("tableTwo", tableTwo)
+
 
     /**
-     * 左流和右流的输入都可以触发
-     * join动作
-     * 流tableOne输入sensor_1,1547718199,1.0
+     * 左右2条流都可以触发计算
+     * 左流输入sensor_1,1547718199,1.0
      * 输出
-     * (true,sensor_1,1547718199,1.0,null,null,null)
+     * 3> (true,sensor_1,1547718199,1.0,null,null,null)
      *
-     * tableTwo输入sensor_1,1547718199,1.1
-     * 输出。所以此时则说明了左流的输入也触发了join计算
-     * (false,sensor_1,1547718199,1.0,null,null,null)
-     * (true,sensor_1,1547718199,1.0,sensor_1,1547718199,1.1)
      *
-     * 如果流tableTwo输入sensor_1,1547718199,1.1
-     * 则此时如果tableOne输入sensor_1,1547718199,1.3
-     * 输出。因为此时右变的流里面有2条对应的数据
-     * 3> (true,sensor_1,1547718199,1.3,sensor_1,1547718199,1.1)
-     * 3> (true,sensor_1,1547718199,1.3,sensor_1,1547718199,1.0)
+     *
+     * 右流输入
+     * sensor_1,1547718199,1.1
+     * 输出
+     * 3> (false,sensor_1,1547718199,1.0,null,null,null)
+     * 3> (true,sensor_1,1547718199,1.0,sensor_1,1547718199,1.1)
+     *
+     *
+     * 右流继续输入sensor_1,1547718199,1.2
+     * 则有输出
+     * 3> (true,sensor_1,1547718199,1.0,sensor_1,1547718199,1.2)
+     *
+     * 可以看出左流也触发了执行
+     *
      */
-    tableOne.leftOuterJoin(tableTwo, 'id === 'idTwo)
-      .toRetractStream[Row]
-      .print()
-
-    //    tableOne
-    //      .fullOuterJoin(tableTwo, 'id === 'idTwo)
-    //      .toRetractStream[Row]
-    //      .print()
+    tableEnvironment.sqlQuery(
+      """
+        |select t1.*,t2.*
+        | from tableOne t1 left join tableTwo  t2 on t1.id = t2.idTwo
+        |""".stripMargin).toRetractStream[Row].print()
 
     environment.execute()
+
+
   }
+
 }

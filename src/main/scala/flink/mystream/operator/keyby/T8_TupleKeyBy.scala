@@ -13,7 +13,7 @@ object T8_TupleKeyBy {
 
     val environment: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
 
-    val tupleDataStream: DataStream[(String, Int)] = environment.fromElements(("a", 1), ("a", 2), ("b", 1))
+    val tupleDataStream: DataStream[(String, Int)] = environment.fromElements(("a", 1), ("a", 2), ("b", 1),("b",2))
 
     //    指定tuple里面的第一个元素为key
     //    对于tuple，此处是使用位置参数，指定按照那个位置的元素进行聚合，按照那个位置的元素进行累加

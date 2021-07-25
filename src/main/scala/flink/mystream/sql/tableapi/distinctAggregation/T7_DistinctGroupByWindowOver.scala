@@ -13,7 +13,7 @@ object T7_DistinctGroupByWindowOver {
 
   def main(args: Array[String]): Unit = {
 
-    val sensorReadingDataStream: DataStream[SensorReading] = SensorReadingDataSource.getDataSource("LocalOne",7777)
+    val sensorReadingDataStream: DataStream[SensorReading] = SensorReadingDataSource.getDataSource("LocalOne", 7777)
     val tableEnvironment: StreamTableEnvironment = SensorReadingDataSource.getTableEnvironment
 
     // 此处得到结论，如果DataStream里面的event类型是scala的case class。
@@ -34,7 +34,7 @@ object T7_DistinctGroupByWindowOver {
       .groupBy('id, 'w)
       .select('id, 'temperature.sum.distinct)
       .toRetractStream[Row]
-    //      .print()
+      .print()
 
     //    下面代码貌似有问题
     //    table
@@ -44,7 +44,7 @@ object T7_DistinctGroupByWindowOver {
     //      .print()
 
     //   所有字段都相同的，则只保留一条
-    table.distinct().toRetractStream[Row].print()
+    //    table.distinct().toRetractStream[Row].print()
 
     SensorReadingDataSource.environment.execute()
   }

@@ -17,7 +17,7 @@ object T1_SideOutPut {
 
     val sideTag: OutputTag[Int] = new OutputTag[Int]("odd")
 
-    val value1: DataStream[Int] = source.process(new MyProcessFunction(sideTag))
+    val value1: DataStream[Int] = source.process(new MyProcessFunction(sideTag)).uid("process").name("")
 
     val value2: DataStream[Int] = value1.getSideOutput(sideTag)
 
@@ -25,8 +25,8 @@ object T1_SideOutPut {
     value2.print("value2")
 
     //    将下面的json串复制到https://flink.apache.org/visualizer/，则可以查看执行计划
-    val plan: String = environment.getExecutionPlan
-    println(plan)
+//    val plan: String = environment.getExecutionPlan
+//    println(plan)
 
 
     environment.execute()
