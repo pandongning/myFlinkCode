@@ -1,8 +1,12 @@
 package flink.mystream.operator
 
+import java.util
+
 import org.apache.flink.api.common.functions.RichMapFunction
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
 import org.apache.flink.api.scala._
+
+import scala.collection.mutable
 
 object T1_FlatMap {
 
@@ -10,13 +14,16 @@ object T1_FlatMap {
 
     val environment: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
 
-    val lineDataStream: DataStream[String] = environment.fromElements("a b c", "d e")
+    val aString: Array[Int] = Array(1, 2, 3)
+    val bString: Array[Int] = Array(4, 5)
 
-    val wordDataStream: DataStream[String] = lineDataStream.flatMap((line: String) => line.split(" "))
 
-    lineDataStream.map((line: String) => line)
+    val value: DataStream[Array[Int]] = environment.fromElements(aString, bString)
 
-    wordDataStream.print()
+    //    将List打宽
+
+    val value1: DataStream[Int] = value.flatMap((a: Array[Int]) => a)
+
 
     environment.execute()
   }

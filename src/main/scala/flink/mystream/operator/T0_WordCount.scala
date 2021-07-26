@@ -62,8 +62,12 @@ object T0_WordCount {
 
     println(org.apache.flink.streaming.api.windowing.time.Time.hours(-8).toMilliseconds)
 
-    val value1: DataStream[String] = textDstream.flatMap((line: String) => line.split("\\s"))
-      .filter((word: String) => word.nonEmpty)
+    val value2: DataStream[Array[String]] = textDstream.map((line: String) => line.split("\\s"))
+
+    value2.flatMap((a: Array[String]) =>a)
+
+//    val value1: DataStream[String] = textDstream.flatMap((line: String) => line.split("\\s"))
+//      .filter((word: String) => word.nonEmpty)
 
     val dataStream: DataStream[(String, Int)] = value1.map(new MapFunction[String, (String, Int)] {
       override def map(value: String) = {

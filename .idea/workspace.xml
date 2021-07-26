@@ -14,27 +14,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69a1b54d-fe5a-443e-b2d0-064aa4d3e74d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/sqlLanguage/T7_Join.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/scala/T2.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T0_WordCount.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T0_WordCount.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/keyby/T8_TupleKeyBy.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/keyby/T8_TupleKeyBy.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sideoutputs/T1_SideOutPut.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sideoutputs/T1_SideOutPut.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/connector/T1_KafkaConnector_RegularJoin.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/connector/T1_KafkaConnector_RegularJoin.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/sqlLanguage/T3_GroupByTUMBLEWindowAggregation.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/sqlLanguage/T3_GroupByTUMBLEWindowAggregation.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/sqlLanguage/T5_Top_N.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/sqlLanguage/T5_Top_N.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/T1_DataStreamToTable.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/T1_DataStreamToTable.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/distinctAggregation/T7_DistinctGroupByWindowOver.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/distinctAggregation/T7_DistinctGroupByWindowOver.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/joins/T8_InnerJoin.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/joins/T8_InnerJoin.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/joins/T9_Time_Windowed_Join.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/sql/tableapi/joins/T9_Time_Windowed_Join.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/utils/SensorReadingDataSource.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/utils/SensorReadingDataSource.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t1_timewindow/SlidingWindows.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t1_timewindow/SlidingWindows.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/flink/mystream/asyncIo/AsyncGaoDe/AsyncGeoToActivityBeanFunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/flink/mystream/asyncIo/AsyncGaoDe/AsyncQueryActivityLocation" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/flink/mystream/asyncIo/AsyncGaoDe/笔记.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/flink/mystream/operator/keyby/笔记.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/flink/mystream/processfunction/T2_BroadcastState" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T1_FlatMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T1_FlatMap.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +246,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -306,7 +288,7 @@
       <workItem from="1626598072570" duration="10429000" />
       <workItem from="1627008476342" duration="2862000" />
       <workItem from="1627195876542" duration="1661000" />
-      <workItem from="1627197640527" duration="3741000" />
+      <workItem from="1627197640527" duration="13372000" />
     </task>
     <task id="LOCAL-00001" summary="添加执行的记录">
       <created>1613132062492</created>
@@ -343,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625366353844</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="添加新的2020-07-23">
+      <created>1627201703499</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1627201703499</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +355,8 @@
     <MESSAGE value="添加a" />
     <MESSAGE value="添加执行的记录" />
     <MESSAGE value="添加kafka connect的双流join" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加kafka connect的双流join" />
+    <MESSAGE value="添加新的2020-07-23" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加新的2020-07-23" />
   </component>
   <component name="WindowStateProjectService">
     <state x="281" y="0" width="736" height="689" key="#T0_WordCount" timestamp="1627200432672">
@@ -413,10 +403,10 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="245" y="178" width="791" height="346" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.689@0.0.1280.689" timestamp="1626617945593" />
-    <state x="151" y="0" key="CommitChangelistDialog2" timestamp="1625366352318">
+    <state x="151" y="0" key="CommitChangelistDialog2" timestamp="1627201702319">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="151" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1625366352318" />
+    <state x="151" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1627201702319" />
     <state x="368" y="41" key="FileChooserDialogImpl" timestamp="1627198324388">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -457,14 +447,14 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="0" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1625366335414" />
-    <state width="632" height="498" key="SwitcherDM" timestamp="1627200786447">
+    <state width="632" height="498" key="SwitcherDM" timestamp="1627266786387">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="632" height="498" key="SwitcherDM/0.0.1280.689@0.0.1280.689" timestamp="1627200786447" />
-    <state x="133" y="13" key="Vcs.Push.Dialog.v2" timestamp="1625366378247">
+    <state width="632" height="498" key="SwitcherDM/0.0.1280.689@0.0.1280.689" timestamp="1627266786387" />
+    <state x="133" y="13" key="Vcs.Push.Dialog.v2" timestamp="1627201713947">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="133" y="13" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1625366378247" />
+    <state x="133" y="13" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1627201713947" />
     <state x="193" y="15" key="VcsDiffUtil.ChangesDialog" timestamp="1625328139193">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
