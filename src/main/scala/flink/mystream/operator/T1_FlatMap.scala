@@ -1,12 +1,9 @@
 package flink.mystream.operator
 
-import java.util
-
-import org.apache.flink.api.common.functions.RichMapFunction
-import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
+import org.apache.flink.api.common.functions.FlatMapFunction
 import org.apache.flink.api.scala._
-
-import scala.collection.mutable
+import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
+import org.apache.flink.util.Collector
 
 object T1_FlatMap {
 
@@ -24,8 +21,15 @@ object T1_FlatMap {
 
     val value1: DataStream[Int] = value.flatMap((a: Array[Int]) => a)
 
+    val value2: DataStream[Int] = value.flatMap(new FlatMapFunction[Array[Int], Int] {
+      override def flatMap(value: Array[Int], out: Collector[Int]): Unit = {
+        value.foreach((ele: Int) => out.collect(ele))
+      }
+    })
 
-    environment.execute()
+    value2.print()
+
+   environment.execute()
   }
 
 }

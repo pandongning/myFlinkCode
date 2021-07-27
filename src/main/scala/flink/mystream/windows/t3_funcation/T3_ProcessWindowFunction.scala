@@ -32,7 +32,7 @@ object T3_ProcessWindowFunction {
 
     val lineSource: DataStream[String] = environment.addSource(flinkKafkaConsumer)
 
-    val sensorReading: DataStream[SensorReading] = lineSource.map(line => {
+    val sensorReading: DataStream[SensorReading] = lineSource.map((line: String) => {
       val strings: Array[String] = line.split(",")
       SensorReading(strings(0), strings(1).trim.toLong, strings(2).trim.toDouble)
     }
@@ -43,8 +43,25 @@ object T3_ProcessWindowFunction {
     //泛型String是key的类型
     val keyedStream: KeyedStream[SensorReading, String] = sensorReading.keyBy((_: SensorReading).id)
 
+    /**
+     * 输入
+     * >sensor_1, 1599990790000,1
+     * >sensor_1, 1599990790000,1.1
+     * >sensor_1, 1599990790000,1.2
+     * >sensor_2, 1599990790000,2
+     * >sensor_2, 1599990790000,2.1
+     * >sensor_2, 1599990790000,2.2
+     * >sensor_3, 1599990792000,3
+     * >sensor_3, 1599990792000,3.1
+     * >sensor_3, 1599990792000,3.2
+     * 输出如下
+     * 2> (sensor_2,2)
+     * 5> (sensor_1,3)
+     * 所以可以看出其是对于不同得key，调用了一次process方法。即本窗口里面key相同得数据。统一调用一次process方法
+     */
+
     keyedStream.timeWindow(Time.milliseconds(3))
-      .process(new MyProcessWindowFunction()).print()
+      .process(new MyProcessWindowFunctionTwo()).print()
 
     environment.execute()
   }
@@ -59,11 +76,11 @@ object T3_ProcessWindowFunction {
  * W      The type of the window.
  */
 
-class MyProcessWindowFunction extends ProcessWindowFunction[SensorReading, Int, String, TimeWindow] {
+class MyProcessWindowFunctionTwo extends ProcessWindowFunction[SensorReading, (String, Int), String, TimeWindow] {
 
   //  参数context可以用于获取状态信息---a Context object with access to time and state information
   //统计窗口内event的总数
-  override def process(key: String, context: Context, elements: Iterable[SensorReading], out: Collector[Int]): Unit = {
+  override def process(key: String, context: Context, elements: Iterable[SensorReading], out: Collector[(String, Int)]): Unit = {
     var count: Int = 0
 
     for (elem <- elements) {
@@ -71,6 +88,7 @@ class MyProcessWindowFunction extends ProcessWindowFunction[SensorReading, Int, 
     }
 
     // out参数用于将处理的结果发送给下一个算子
-    out.collect(count)
+    out.collect((key, count))
   }
 }
+

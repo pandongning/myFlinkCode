@@ -43,7 +43,7 @@ object T4_ProcessWindowFunctionWithReduceFunction {
 
     val lineSource: DataStream[String] = environment.addSource(flinkKafkaConsumer)
 
-    val sensorReading: DataStream[SensorReading] = lineSource.map(line => {
+    val sensorReading: DataStream[SensorReading] = lineSource.map((line: String) => {
       val strings: Array[String] = line.split(",")
       SensorReading(strings(0), strings(1).trim.toLong, strings(2).trim.toDouble)
     }
@@ -55,9 +55,9 @@ object T4_ProcessWindowFunctionWithReduceFunction {
     val keyedStream: KeyedStream[SensorReading, String] = sensorReading.keyBy(_.id)
 
     keyedStream
-      .timeWindow(Time.milliseconds(5))
+      .timeWindow(Time.milliseconds(3))
       //第一个函数对数据进行增量的聚合，然后将聚合的结果，发送给第二个函数统一做最后的处理
-      .reduce(new MyReduceFunction(),new T4_MyProcessWindowFunction)
+      .reduce(new MyReduceFunction(), new T4_MyProcessWindowFunction)
       .print()
 
     environment.execute()
@@ -74,8 +74,24 @@ class MyReduceFunction extends ReduceFunction[SensorReading] {
 // 接受MyReduceFunction的结果，然后将其变为字符串输出即可
 class T4_MyProcessWindowFunction extends ProcessWindowFunction[SensorReading, String, String, TimeWindow] {
   override def process(key: String, context: Context, elements: Iterable[SensorReading], out: Collector[String]): Unit = {
+    //    其实reduce聚合完之后其就变成了一条数据。所以下面得list里面实际就只有一条数据
     val list: List[SensorReading] = elements.toList
     val str: String = list.mkString("$")
+
+    /**
+     * 输入
+     * >sensor_1, 1599990790000,1
+     * >sensor_1, 1599990790000,1.1
+     * >sensor_1, 1599990790000,1.2
+     * >sensor_2, 1599990790000,2
+     * >sensor_2, 1599990790000,2.1
+     * >sensor_3, 1599990792000,3
+     * >sensor_3, 1599990792000,3.1
+     * >sensor_3, 1599990792000,3.2
+     * 输出
+     * 5> SensorReading(sensor_1,1599990790000,3.3)
+     * 2> SensorReading(sensor_2,1599990790000,4.1)
+     */
     out.collect(str)
   }
 }

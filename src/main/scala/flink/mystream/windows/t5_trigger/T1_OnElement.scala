@@ -36,7 +36,7 @@ object T1_OnElement {
 
     val lineSource: DataStream[String] = environment.addSource(flinkKafkaConsumer)
 
-    val sensorReading: DataStream[SensorReading] = lineSource.map(line => {
+    val sensorReading: DataStream[SensorReading] = lineSource.map((line: String) => {
       val strings: Array[String] = line.split(",")
       SensorReading(strings(0), strings(1).trim.toLong, strings(2).trim.toDouble)
     }
@@ -45,9 +45,9 @@ object T1_OnElement {
     })
 
 
-    val keyedStream: KeyedStream[SensorReading, String] = sensorReading.keyBy(_.id)
+    val keyedStream: KeyedStream[SensorReading, String] = sensorReading.keyBy((_: SensorReading).id)
 
-    keyedStream.timeWindow(Time.milliseconds(5))
+    keyedStream.timeWindow(Time.milliseconds(3))
       .trigger(new MyTrigger())
       .process(new T1_ProcessWindowFunction)
       .print()
@@ -60,6 +60,16 @@ object T1_OnElement {
  * 每遇到一个id为sensor_1的event
  * 则计算此前所有key的温度平均值
  *
+ * 输入
+ * sensor_1, 1599990790000,1
+ * 输出
+ * 5> sensor_1	1599990790002	1.0
+ * 输入
+ * 5> sensor_1	1599990790002	1.1
+ * 输出
+ * 5> sensor_1	1599990790002	1.05
+ * 从上面得输出可以看出第一次process函数处理得时候，其elements里面只有一条数据
+ * 当第二条数据sensor_1	1599990790002	1.1到来得时候，则elements里面只有二条数据
  */
 class T1_ProcessWindowFunction extends ProcessWindowFunction[SensorReading, String, String, TimeWindow] {
   //  process只执行一次，一次处理该窗口里面的所有数据

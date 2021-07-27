@@ -2,6 +2,7 @@ package flink.mystream.operator
 
 import flink.mystream.operator.keyby.SensorReading
 import org.apache.flink.streaming.api.scala.{ConnectedStreams, DataStream, SplitStream, StreamExecutionEnvironment}
+
 /**
  * 此处得例子，两个流里面得元素类型相同
  */
@@ -36,7 +37,7 @@ object T4_ConnectComap {
     //两个泛型分别表示每个流里面的元素类型
     val connectedStreams: ConnectedStreams[SensorReading, SensorReading] = highTempStream.connect(lowTempStream)
 
-//    此处的map就是comap
+    //    此处的map就是comap
     val connectedStream: DataStream[String] = connectedStreams.map(
       (sensorReading: SensorReading) => ("high_" + sensorReading.temperature),
       (sensorReading: SensorReading) => ("low_" + sensorReading.temperature)

@@ -14,9 +14,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69a1b54d-fe5a-443e-b2d0-064aa4d3e74d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/myFlinkCode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/myFlinkCode.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T0_WordCount.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T0_WordCount.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T1_FlatMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T1_FlatMap.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T4_ConnectComap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/operator/T4_ConnectComap.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t3_funcation/T3_ProcessWindowFunction.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t3_funcation/T3_ProcessWindowFunction.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t3_funcation/T4_ProcessWindowFunctionWithReduceFunction.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t3_funcation/T4_ProcessWindowFunctionWithReduceFunction.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t5_trigger/T1_OnElement.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/flink/mystream/windows/t5_trigger/T1_OnElement.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,17 +62,17 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="E:/教程/大数据/sggFlink（Java版）/代码/FlinkTutorial" />
-    <property name="project.structure.last.edited" value="Problems" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.46232557" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean package" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.T0_WordCount">
+  <component name="RunManager" selected="Application.T1_OnElement">
     <configuration name="T0_WordCount" type="Application" factoryName="Application">
       <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
       <option name="MAIN_CLASS_NAME" value="flink.mystream.operator.T0_WordCount" />
@@ -111,13 +116,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="T1_DataStreamToTable" type="Application" factoryName="Application" temporary="true">
+    <configuration name="T1_FlatMap" type="Application" factoryName="Application" temporary="true">
       <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
-      <option name="MAIN_CLASS_NAME" value="flink.mystream.sql.tableapi.T1_DataStreamToTable" />
+      <option name="MAIN_CLASS_NAME" value="flink.mystream.operator.T1_FlatMap" />
       <module name="myFlinkCode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="flink.mystream.sql.tableapi.*" />
+          <option name="PATTERN" value="flink.mystream.operator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -125,13 +130,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="T1_SideOutPut" type="Application" factoryName="Application" temporary="true">
+    <configuration name="T1_OnElement" type="Application" factoryName="Application">
       <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
-      <option name="MAIN_CLASS_NAME" value="flink.mystream.sideoutputs.T1_SideOutPut" />
+      <option name="MAIN_CLASS_NAME" value="flink.mystream.windows.t5_trigger.T1_OnElement" />
       <module name="myFlinkCode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="flink.mystream.sideoutputs.*" />
+          <option name="PATTERN" value="flink.mystream.windows.t5_trigger.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -153,6 +158,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="T3_ProcessWindowFunction" type="Application" factoryName="Application" temporary="true">
+      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
+      <option name="MAIN_CLASS_NAME" value="flink.mystream.windows.t3_funcation.T3_ProcessWindowFunction" />
+      <module name="myFlinkCode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="flink.mystream.windows.t3_funcation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="T3_Two_Stream_Interval_Join" type="Application" factoryName="Application">
       <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
       <option name="MAIN_CLASS_NAME" value="flink.mystream.sql.connector.T3_Two_Stream_Interval_Join" />
@@ -160,6 +179,20 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="flink.mystream.sql.connector.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="T4_ProcessWindowFunctionWithReduceFunction" type="Application" factoryName="Application" temporary="true">
+      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
+      <option name="MAIN_CLASS_NAME" value="flink.mystream.windows.t3_funcation.T4_ProcessWindowFunctionWithReduceFunction" />
+      <module name="myFlinkCode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="flink.mystream.windows.t3_funcation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -209,13 +242,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="T8_TupleKeyBy" type="Application" factoryName="Application" temporary="true">
+    <configuration name="TumblingWindowsKafkaEventTime" type="Application" factoryName="Application">
       <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
-      <option name="MAIN_CLASS_NAME" value="flink.mystream.operator.keyby.T8_TupleKeyBy" />
+      <option name="MAIN_CLASS_NAME" value="flink.mystream.windows.t1_timewindow.TumblingWindowsKafkaEventTime" />
       <module name="myFlinkCode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="flink.mystream.operator.keyby.*" />
+          <option name="PATTERN" value="flink.mystream.windows.t1_timewindow.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -229,20 +262,22 @@
       <item itemvalue="Application.T8_InnerJoin" />
       <item itemvalue="Application.T3_GroupByTUMBLEWindowAggregation" />
       <item itemvalue="Application.T7_Join" />
-      <item itemvalue="Application.T8_TupleKeyBy" />
-      <item itemvalue="Application.T1_SideOutPut" />
-      <item itemvalue="Application.T1_DataStreamToTable" />
+      <item itemvalue="Application.T0_WordCount" />
+      <item itemvalue="Application.TumblingWindowsKafkaEventTime" />
       <item itemvalue="Application.T5_Top_N" />
       <item itemvalue="Application.T10_RichMap" />
-      <item itemvalue="Application.T0_WordCount" />
+      <item itemvalue="Application.T1_FlatMap" />
+      <item itemvalue="Application.T3_ProcessWindowFunction" />
+      <item itemvalue="Application.T4_ProcessWindowFunctionWithReduceFunction" />
+      <item itemvalue="Application.T1_OnElement" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.T4_ProcessWindowFunctionWithReduceFunction" />
+        <item itemvalue="Application.T3_ProcessWindowFunction" />
+        <item itemvalue="Application.T1_FlatMap" />
         <item itemvalue="Application.T10_RichMap" />
         <item itemvalue="Application.T5_Top_N" />
-        <item itemvalue="Application.T1_DataStreamToTable" />
-        <item itemvalue="Application.T1_SideOutPut" />
-        <item itemvalue="Application.T8_TupleKeyBy" />
       </list>
     </recent_temporary>
   </component>
@@ -288,7 +323,9 @@
       <workItem from="1626598072570" duration="10429000" />
       <workItem from="1627008476342" duration="2862000" />
       <workItem from="1627195876542" duration="1661000" />
-      <workItem from="1627197640527" duration="13372000" />
+      <workItem from="1627197640527" duration="18090000" />
+      <workItem from="1627351374528" duration="2624000" />
+      <workItem from="1627398381401" duration="2848000" />
     </task>
     <task id="LOCAL-00001" summary="添加执行的记录">
       <created>1613132062492</created>
@@ -332,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627201703499</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="添加新的2020-07-23">
+      <created>1627267837245</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1627267837245</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,10 +407,22 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="281" y="0" width="736" height="689" key="#T0_WordCount/0.0.1280.689@0.0.1280.689" timestamp="1627200432672" />
+    <state x="281" y="0" width="736" height="689" key="#T1_OnElement" timestamp="1627402370446">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="281" y="0" width="736" height="689" key="#T1_OnElement/0.0.1280.689@0.0.1280.689" timestamp="1627402370446" />
     <state x="230" y="0" key="#T3_GroupByTUMBLEWindowAggregation" timestamp="1626278969212">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="230" y="0" key="#T3_GroupByTUMBLEWindowAggregation/0.0.1280.689@0.0.1280.689" timestamp="1626278969212" />
+    <state x="257" y="0" key="#T3_ProcessWindowFunction" timestamp="1627398477187">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="257" y="0" key="#T3_ProcessWindowFunction/0.0.1280.689@0.0.1280.689" timestamp="1627398477187" />
+    <state x="183" y="0" key="#T4_ProcessWindowFunctionWithReduceFunction" timestamp="1627401688889">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="183" y="0" key="#T4_ProcessWindowFunctionWithReduceFunction/0.0.1280.689@0.0.1280.689" timestamp="1627401688889" />
     <state x="281" y="0" width="736" height="689" key="#T5_Top_N" timestamp="1626279598101">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -379,22 +435,26 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="281" y="0" width="736" height="689" key="#T8_InnerJoin/0.0.1280.689@0.0.1280.689" timestamp="1626277356051" />
+    <state x="223" y="0" key="#TumblingWindowsKafkaEventTime" timestamp="1627353352733">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="223" y="0" key="#TumblingWindowsKafkaEventTime/0.0.1280.689@0.0.1280.689" timestamp="1627353352733" />
     <state x="368" y="91" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1627196573046">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="368" y="91" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1280.689@0.0.1280.689" timestamp="1627196573046" />
-    <state x="92" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1627019935473">
+    <state x="92" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1627269085376">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="92" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.689@0.0.1280.689" timestamp="1627019935472" />
+    <state x="92" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.689@0.0.1280.689" timestamp="1627269085376" />
     <state x="333" y="242" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog" timestamp="1625025744988">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="333" y="242" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog/0.0.1280.689@0.0.1280.689" timestamp="1625025744988" />
-    <state x="399" y="0" key="#com.intellij.ide.util.MemberChooser" timestamp="1627196622240">
+    <state x="399" y="0" key="#com.intellij.ide.util.MemberChooser" timestamp="1627268769734">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="399" y="0" key="#com.intellij.ide.util.MemberChooser/0.0.1280.689@0.0.1280.689" timestamp="1627196622240" />
+    <state x="399" y="0" key="#com.intellij.ide.util.MemberChooser/0.0.1280.689@0.0.1280.689" timestamp="1627268769734" />
     <state x="212" y="254" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1626272891240">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -403,30 +463,30 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="245" y="178" width="791" height="346" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.689@0.0.1280.689" timestamp="1626617945593" />
-    <state x="151" y="0" key="CommitChangelistDialog2" timestamp="1627201702319">
+    <state x="151" y="0" key="CommitChangelistDialog2" timestamp="1627267836037">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="151" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1627201702319" />
-    <state x="368" y="41" key="FileChooserDialogImpl" timestamp="1627198324388">
+    <state x="151" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1627267836037" />
+    <state x="368" y="41" key="FileChooserDialogImpl" timestamp="1627269221576">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="368" y="41" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1627198324388" />
-    <state width="1227" height="498" key="GridCell.Tab.0.bottom" timestamp="1627200763350">
+    <state x="368" y="41" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1627269221576" />
+    <state width="1227" height="276" key="GridCell.Tab.0.bottom" timestamp="1627401842486">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="498" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1627200763350" />
-    <state width="1227" height="498" key="GridCell.Tab.0.center" timestamp="1627200763350">
+    <state width="1227" height="276" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1627401842486" />
+    <state width="1227" height="276" key="GridCell.Tab.0.center" timestamp="1627401842485">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="498" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1627200763350" />
-    <state width="1227" height="498" key="GridCell.Tab.0.left" timestamp="1627200763349">
+    <state width="1227" height="276" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1627401842485" />
+    <state width="1227" height="276" key="GridCell.Tab.0.left" timestamp="1627401842485">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="498" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1627200763349" />
-    <state width="1227" height="498" key="GridCell.Tab.0.right" timestamp="1627200763350">
+    <state width="1227" height="276" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1627401842485" />
+    <state width="1227" height="276" key="GridCell.Tab.0.right" timestamp="1627401842486">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1227" height="498" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1627200763350" />
+    <state width="1227" height="276" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1627401842486" />
     <state width="1227" height="244" key="GridCell.Tab.1.bottom" timestamp="1625201150503">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -443,26 +503,26 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state width="1227" height="244" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1625201150503" />
-    <state x="0" y="0" key="SettingsEditor" timestamp="1625366335414">
+    <state x="0" y="0" key="SettingsEditor" timestamp="1627269265128">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="0" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1625366335414" />
+    <state x="0" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1627269265128" />
     <state width="632" height="498" key="SwitcherDM" timestamp="1627266786387">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state width="632" height="498" key="SwitcherDM/0.0.1280.689@0.0.1280.689" timestamp="1627266786387" />
-    <state x="133" y="13" key="Vcs.Push.Dialog.v2" timestamp="1627201713947">
+    <state x="133" y="13" key="Vcs.Push.Dialog.v2" timestamp="1627267849707">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="133" y="13" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1627201713947" />
+    <state x="133" y="13" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1627267849707" />
     <state x="193" y="15" key="VcsDiffUtil.ChangesDialog" timestamp="1625328139193">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="193" y="15" key="VcsDiffUtil.ChangesDialog/0.0.1280.689@0.0.1280.689" timestamp="1625328139193" />
-    <state x="249" y="127" key="com.intellij.ide.util.TipDialog" timestamp="1627195876490">
+    <state x="249" y="127" key="com.intellij.ide.util.TipDialog" timestamp="1627351379017">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="249" y="127" key="com.intellij.ide.util.TipDialog/0.0.1280.689@0.0.1280.689" timestamp="1627195876490" />
+    <state x="249" y="127" key="com.intellij.ide.util.TipDialog/0.0.1280.689@0.0.1280.689" timestamp="1627351379017" />
     <state x="213" y="150" width="840" height="1034" key="run.anything.popup" timestamp="1627196259578">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
